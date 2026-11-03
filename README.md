@@ -11,95 +11,52 @@
 | STT | Thành viên | Chuyên môn & Định hướng | Liên kết Portfolio |
 |:---:|---|---|---|
 | 1 | **Nguyễn Duy Tân** | Software Engineering & Frontend Developer | [`./portfolio_tan/index.html`](./portfolio_tan/index.html) |
-| 2 | **Đinh Thanh Thiên** | AI & 3D Interactive Web (Three.js & Spline) | [`./pro5thanhthien/pro5/dist/index.html`](./pro5thanhthien/pro5/dist/index.html) |
-| 3 | **Phạm Gia Khiêm (Ryuu)** | Android & Backend Developer (Kotlin, Java, Node.js) | [`./portfolio_khiem/index.html`](./portfolio_khiem/index.html) |
-| 4 | **Bùi Gia Hưng** | Software, Data & Smart Logistics | [`./portfolio-bui-gia-hung/portfolio-bui-gia-hung/index.html`](./portfolio-bui-gia-hung/portfolio-bui-gia-hung/index.html) |
-| 5 | **Nguyễn Đăng Khôi** | Computer Science & Algorithms | [`./myportfolio-master/index.html`](./myportfolio-master/index.html) |
-| 6 | **Đoàn Đăng Khoa** | Web Developer & Software Engineering | [`./portfolio-khoa/index.html`](./portfolio-khoa/index.html) |
+| 2 | **Đinh Thanh Thiên** | AI & Smart Logistics Developer | [`./portfolio_thien/index.html`](./portfolio_thien/index.html) |
+| 3 | **Phạm Gia Khiêm (Ryuu)** | Android & Backend Developer | [`./portfolio_khiem/index.html`](./portfolio_khiem/index.html) |
+| 4 | **Bùi Gia Hưng** | Software, Data & Smart Logistics | [`./portfolio_hung/index.html`](./portfolio_hung/index.html) |
+| 5 | **Nguyễn Đăng Khôi** | Computer Science & Algorithms | [`./portfolio_khoi/index.html`](./portfolio_khoi/index.html) |
+| 6 | **Đoàn Đăng Khoa** | Web Developer & Software Engineering | [`./portfolio_khoa/index.html`](./portfolio_khoa/index.html) |
 
 ---
 
-## 📁 Cấu Trúc Thư Mục Dự Án
+## 📁 Cấu Trúc Thư Mục Đồng Bộ & Tối Giản (100% Web Tĩnh)
 
 ```text
 port nhóm/
 ├── index.html                    # Trang Hub tổng hợp 6 thành viên (Trang chủ)
-├── server.js                     # Máy chủ Node.js cục bộ (Zero-dependency)
-├── start-server.bat              # Script 1-click khởi chạy trên Windows
-├── push-to-github.bat            # Script hỗ trợ kết nối và đẩy code lên GitHub
-├── .gitignore                    # Bỏ qua node_modules, log, tệp tạm
-├── README.md                     # Tài liệu giới thiệu dự án
+├── .nojekyll                     # Tắt Jekyll để chạy ngay trên GitHub Pages
+├── _config.yml                   # Cấu hình GitHub Pages
+├── .gitignore                    # Bỏ qua tệp hệ thống tạm
+├── README.md                     # Giới thiệu dự án & Hướng dẫn
+├── push-to-github.bat            # Script 1-click đẩy lên GitHub
+├── start-server.bat              # Script chạy server cục bộ nếu muốn
 │
-├── portfolio_tan/                # Portfolio: Nguyễn Duy Tân
-├── pro5thanhthien/               # Portfolio: Đinh Thanh Thiên (React 18 + Three.js)
-│   └── pro5/
-│       ├── dist/                 # Bản build tĩnh hoàn chỉnh (có video gương mặt & 3D)
-│       ├── src/                  # Mã nguồn React + TypeScript + Tailwind
-│       └── package.json
-├── portfolio_khiem/              # Portfolio: Phạm Gia Khiêm
-├── portfolio-bui-gia-hung/       # Portfolio: Bùi Gia Hưng
-├── myportfolio-master/           # Portfolio: Nguyễn Đăng Khôi
-└── portfolio-khoa/               # Portfolio: Đoàn Đăng Khoa
+├── portfolio_tan/                # Portfolio: Nguyễn Duy Tân (HTML/CSS/JS)
+├── portfolio_thien/              # Portfolio: Đinh Thanh Thiên (HTML/CSS/JS + Face Video)
+├── portfolio_khiem/              # Portfolio: Phạm Gia Khiêm (HTML/CSS/JS)
+├── portfolio_hung/               # Portfolio: Bùi Gia Hưng (HTML/CSS/JS)
+├── portfolio_khoi/               # Portfolio: Nguyễn Đăng Khôi (HTML/CSS/JS)
+└── portfolio_khoa/               # Portfolio: Đoàn Đăng Khoa (HTML/CSS/JS)
 ```
 
 ---
 
-## 🚀 Hướng Dẫn Khởi Chạy Localhost
+## 🚀 Cách Mở & Xem Trang Web
 
-Tất cả 6 portfolio đã được thiết kế tương thích hoàn toàn để chạy chung trên **1 cổng (Port) duy nhất**:
-
-### Cách 1: Click đúp 1-Click (Khuyên dùng trên Windows)
-- Nhấp đúp vào file `start-server.bat`. Trình duyệt sẽ tự động mở `http://localhost:5500`.
-
-### Cách 2: Sử dụng VS Code Live Server
-- Mở thư mục dự án trong VS Code.
-- Chuột phải vào file `index.html` -> Chọn **Open with Live Server**.
-
-### Cách 3: Dùng Node.js hoặc Python CLI
-```bash
-# Bằng Node.js
-node server.js
-
-# Hoặc bằng Python
-python -m http.server 5500
-```
+Dự án được xây dựng hoàn toàn bằng **HTML5, CSS3 và JavaScript thuần túy**:
+- **Không cần Live Server hay môi trường máy chủ phức tạp:** Bạn có thể mở trực tiếp file `index.html` bằng cách nhấp đúp chuột để xem trên trình duyệt Chrome, Edge, Cốc Cốc.
+- **Xem trực tuyến trên GitHub Pages:**  
+  👉 **`https://tannd0059-prog.github.io/portfolio-nhom/`**
 
 ---
 
-## 🌍 Hướng Dẫn Triển Khai Lên GitHub Pages
+## 📤 Hướng Dẫn Đẩy Lên GitHub
 
-Dự án này sử dụng 100% đường dẫn tương đối, sẵn sàng để host trực tiếp miễn phí trên GitHub Pages:
-
-1. Đẩy mã nguồn lên repository GitHub của bạn (xem hướng dẫn bên dưới).
-2. Trên trang repository tại GitHub: Vào **Settings** -> mục **Pages** (bên trái).
-3. Tại phần **Build and deployment**:
-   - **Source:** Chọn `Deploy from a branch`
-   - **Branch:** Chọn `main` và thư mục `/ (root)` -> bấm **Save**.
-4. Chờ 1–2 phút, website của nhóm bạn sẽ hoạt động trực tuyến tại địa chỉ:  
-   `https://tannd0059-prog.github.io/portfolio-nhom/`
-
----
-
-## 📤 Hướng Dẫn Đẩy Lên GitHub Lần Đầu
-
+Chỉ cần nhấp đúp vào file `push-to-github.bat` hoặc chạy lệnh:
 ```bash
-# 1. Khởi tạo Git
-git init
-
-# 2. Thêm tất cả tệp vào Staging
-git add .
-
-# 3. Tạo commit đầu tiên
-git commit -m "feat: complete team portfolio hub for 6 members"
-
-# 4. Đổi nhánh chính thành main
-git branch -M main
-
-# 5. Kết nối với repository GitHub của bạn
-git remote add origin https://github.com/<tai-khoan-cua-ban>/<ten-repo>.git
-
-# 6. Đẩy lên GitHub
-git push -u origin main
+git add -A
+git commit -m "feat: standardize all 6 member portfolios to pure HTML/CSS/JS"
+git push origin main -f
 ```
 
 ---
