@@ -76,7 +76,7 @@ Dự án này sử dụng 100% đường dẫn tương đối, sẵn sàng để
    - **Source:** Chọn `Deploy from a branch`
    - **Branch:** Chọn `main` và thư mục `/ (root)` -> bấm **Save**.
 4. Chờ 1–2 phút, website của nhóm bạn sẽ hoạt động trực tuyến tại địa chỉ:  
-   `https://<tên-user-github>.github.io/<tên-repo>/`
+   `https://tannd0059-prog.github.io/portfolio-nhom/`
 
 ---
 
