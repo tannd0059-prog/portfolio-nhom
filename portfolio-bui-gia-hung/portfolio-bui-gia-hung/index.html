@@ -1,0 +1,1391 @@
+<!doctype html>
+<html lang="en" data-motion="full">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#eee9dd" />
+    <title>Bui Gia Hung — Software, Data & Smart Logistics</title>
+    <meta
+      name="description"
+      content="Bui Gia Hung. Smart Logistics & Supply Chain Engineering student at UTH. Full-stack projects, computer vision and applied machine learning."
+    />
+    <link
+      rel="icon"
+      href="tai-nguyen/hinh-anh/bieu-trung.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="preload"
+      href="tai-nguyen/phong-chu/inter-tight.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="ma-nguon/giao-dien.css" />
+    <script src="ma-nguon/tuong-tac.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#about">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Bui Gia Hung — home"
+        ><span class="brand-mark" aria-hidden="true">bg</span
+        ><span>GIA HUNG</span></a
+      >
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#work">Projects</a
+        ><a href="#practice">Practice</a><a href="#skills">Stack</a
+        ><a href="#education">Education</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="contact-pill" href="#contact"
+          >Let's talk <span aria-hidden="true">↗</span></a
+        >
+        <button
+          class="icon-button menu-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="navigation"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section
+        class="hero light-section"
+        id="home"
+        aria-labelledby="hero-title"
+      >
+        <div class="hero-room" aria-hidden="true">
+          <div class="room-window"></div>
+          <div class="room-monitor">
+            <span>cold_chain / monitor.py</span>
+            <pre>
+class ShipmentMonitor:
+    def check(self, reading):
+        temperature = reading.temperature
+        humidity = reading.humidity
+        return self.assess(
+            temperature, humidity
+        )
+
+@app.get("/shipments/{trip_id}")
+async def shipment(trip_id):
+    return await store.read(trip_id)</pre
+            >
+          </div>
+          <div class="room-desk"></div>
+          <div class="room-book"></div>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">SOFTWARE DEVELOPMENT · SMART LOGISTICS</p>
+          <h1 id="hero-title"><span>BUI GIA</span><span>HUNG</span></h1>
+          <p class="hero-description">
+            Full-stack development, computer vision<br />and software for
+            logistics operations.
+          </p>
+        </div>
+        <div class="hero-subject" data-tilt>
+          <div class="subject-motion">
+            <div class="subject-float">
+              <img
+                src="tai-nguyen/hinh-anh/chan-dung.png"
+                alt="Bui Gia Hung"
+                width="1086"
+                height="1448"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+        <a
+          class="availability-stamp"
+          href="#contact"
+          aria-label="Open to internships — get in touch"
+          ><svg viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <path
+                id="stamp-circle"
+                d="M50 50m-36 0a36 36 0 1 1 72 0a36 36 0 1 1-72 0"
+              />
+            </defs>
+            <text>
+              <textPath href="#stamp-circle">
+                OPEN TO INTERNSHIPS · LET'S TALK ·
+              </textPath>
+            </text>
+            <circle cx="50" cy="50" r="25" />
+            <path d="M40 60 60 40M40 40h20v20" /></svg
+        ></a>
+        <div class="hero-footer">
+          <span>HO CHI MINH CITY, VIETNAM</span
+          ><a href="#about">THE PORTFOLIO <span aria-hidden="true">↓</span></a
+          ><button
+            class="portrait-motion"
+            id="portrait-motion"
+            aria-label="Pause portrait animation"
+            aria-pressed="false"
+            title="Pause portrait animation"
+          >
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M7 5v10m6-10v10" />
+            </svg></button
+          ><span>2026</span>
+        </div>
+      </section>
+
+      <section
+        id="about"
+        class="about-section light-section scroll-scene"
+        data-scene="about"
+        aria-labelledby="about-title"
+      >
+        <div class="scene-pin about-pin">
+          <p class="section-label">01 / ABOUT</p>
+          <div class="about-statement">
+            <h2 id="about-title" class="statement">
+              <span class="ink-line">THOUGHTFULLY</span
+              ><span class="ink-line">BUILT,</span
+              ><span class="ink-line">ROBUST BY</span
+              ><span class="ink-line">DESIGN.</span>
+            </h2>
+            <div class="about-columns">
+              <p>
+                I'm Bui Gia Hung, a third-year
+                <strong>Smart Logistics & Supply Chain Engineering</strong>
+                student at UTH. I connect web applications, data and machine
+                learning to practical logistics problems.
+              </p>
+              <p>
+                I’m looking for an internship in full-stack development,
+                logistics technology or applied ML. Longer term, I want to
+                design software systems for automated warehouses, vehicle access
+                and resilient cold chains.
+              </p>
+            </div>
+          </div>
+          <div class="section-foot">
+            <span>STUDENT. DEVELOPER. BUILDER.</span
+            ><a
+              href="https://github.com/Buigiahung1"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub ↗</a
+            ><a
+              href="https://www.tiktok.com/@bghme"
+              target="_blank"
+              rel="noopener noreferrer"
+              >TikTok ↗</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="focus-section light-section scroll-scene"
+        data-scene="focus"
+        aria-labelledby="focus-title"
+      >
+        <div class="scene-pin focus-pin">
+          <p class="section-label">SOFTWARE / DATA / LOGISTICS</p>
+          <h2 class="statement" id="focus-title">
+            <span class="ink-line">HIGH-DEPTH</span
+            ><span class="ink-line">DIGITAL</span
+            ><span class="ink-line">ENGINEERING.</span>
+          </h2>
+          <p class="focus-copy">
+            From a temperature reading to an operator’s screen.<br />From a
+            camera frame to a verified vehicle.<br />I work on the connections
+            in between.
+          </p>
+          <div class="work-portrait" data-tilt>
+            <div class="laptop-motion">
+              <img
+                src="tai-nguyen/hinh-anh/lam-viec.png"
+                alt="Bui Gia Hung working on a laptop"
+                width="1122"
+                height="1402"
+                decoding="async"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="work"
+        class="work-section dark-section scroll-scene"
+        data-scene="work"
+        aria-labelledby="work-title"
+      >
+        <div class="scene-pin work-pin">
+          <h2 class="work-title" id="work-title">
+            <span data-scatter>SELECTED</span><span data-scatter>WORK</span>
+          </h2>
+          <div class="deck-content">
+            <div class="deck-top">
+              <p class="section-label">02 / SELECTED PROJECTS</p>
+              <span class="micro">FULL-STACK / VISION / DATA</span>
+            </div>
+            <div
+              class="project-deck"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Selected projects"
+            >
+              <button
+                class="project-card mint"
+                data-project="cold"
+                data-card="0"
+                aria-label="Open Cold-Chain-AI"
+              >
+                <span class="project-surface"
+                  ><div class="poster-top">
+                    <span>COLD CHAIN</span><span>01 / 05</span>
+                  </div>
+                  <svg
+                    class="poster-symbol"
+                    viewBox="0 0 160 160"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M30 45h100v80H30zM30 85h100M80 45v80M45 110l22-33 22 16 28-37"
+                    />
+                    <path d="M68 20v25m25-25v25m-25 80v25m25-25v25" /></svg
+                  ><strong class="poster-monogram">CC.</strong>
+                  <div class="poster-preview">
+                    <img
+                      src="tai-nguyen/hinh-anh/du-an/chuoi-lanh.png"
+                      alt="Cold-Chain-AI interface preview"
+                      width="960"
+                      height="620"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="poster-bottom">
+                    <span>Cold-Chain-AI</span><span aria-hidden="true">↗</span>
+                  </div></span
+                >
+              </button>
+              <button
+                class="project-card violet"
+                data-project="alpr"
+                data-card="1"
+                aria-label="Open License Plate Recognition"
+              >
+                <span class="project-surface"
+                  ><div class="poster-top">
+                    <span>COMPUTER VISION</span><span>02 / 05</span>
+                  </div>
+                  <svg
+                    class="poster-symbol"
+                    viewBox="0 0 160 160"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <rect x="20" y="48" width="120" height="65" rx="8" />
+                    <path
+                      d="M35 30H15v20m110-20h20v20M15 118v20h20m90 0h20v-20M42 68v27m16-27v27m17-27v27m20-27v27m23-27v27"
+                    /></svg
+                  ><strong class="poster-monogram">LP.</strong>
+                  <div class="poster-preview">
+                    <img
+                      src="tai-nguyen/hinh-anh/du-an/nhan-dien-bien-so.png"
+                      alt="License Plate Recognition interface preview"
+                      width="960"
+                      height="620"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="poster-bottom">
+                    <span>License Plate Recognition</span
+                    ><span aria-hidden="true">↗</span>
+                  </div></span
+                >
+              </button>
+              <button
+                class="project-card amber"
+                data-project="gold"
+                data-card="2"
+                aria-label="Open Gold Price Forecasting"
+              >
+                <span class="project-surface"
+                  ><div class="poster-top">
+                    <span>TIME-SERIES DATA</span><span>03 / 05</span>
+                  </div>
+                  <svg
+                    class="poster-symbol"
+                    viewBox="0 0 160 160"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M20 20v120h125M30 115l27-20 25 10 20-50 22 15 21-40"
+                    />
+                    <circle cx="103" cy="55" r="9" /></svg
+                  ><strong class="poster-monogram">AU.</strong>
+                  <div class="poster-preview">
+                    <img
+                      src="tai-nguyen/hinh-anh/du-an/du-doan-gia-vang.png"
+                      alt="Gold Price Forecasting interface preview"
+                      width="960"
+                      height="620"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="poster-bottom">
+                    <span>Gold Price Forecasting</span
+                    ><span aria-hidden="true">↗</span>
+                  </div></span
+                >
+              </button>
+              <button
+                class="project-card blue"
+                data-project="learning"
+                data-card="3"
+                aria-label="Open Deep Learning Practice"
+              >
+                <span class="project-surface"
+                  ><div class="poster-top">
+                    <span>MACHINE LEARNING</span><span>04 / 05</span>
+                  </div>
+                  <svg
+                    class="poster-symbol"
+                    viewBox="0 0 160 160"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <circle cx="80" cy="80" r="45" />
+                    <path d="M35 80h90M80 35v90M47 47l66 66m0-66-66 66" />
+                    <circle cx="80" cy="80" r="16" /></svg
+                  ><strong class="poster-monogram">DL.</strong>
+                  <div class="poster-preview">
+                    <img
+                      src="tai-nguyen/hinh-anh/du-an/hoc-sau.png"
+                      alt="Deep Learning Practice interface preview"
+                      width="960"
+                      height="620"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="poster-bottom">
+                    <span>Deep Learning Practice</span
+                    ><span aria-hidden="true">↗</span>
+                  </div></span
+                >
+              </button>
+              <button
+                class="project-card rose"
+                data-project="portfolio"
+                data-card="4"
+                aria-label="Open Personal Portfolio"
+              >
+                <span class="project-surface"
+                  ><div class="poster-top">
+                    <span>FRONTEND DEVELOPMENT</span><span>05 / 05</span>
+                  </div>
+                  <svg
+                    class="poster-symbol"
+                    viewBox="0 0 160 160"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <rect x="20" y="30" width="120" height="100" rx="6" />
+                    <path
+                      d="M20 55h120M40 43h1m10 0h1m10 0h1M55 75l-15 17 15 17m50-34 15 17-15 17m-18-39-14 45"
+                    /></svg
+                  ><strong class="poster-monogram">BG.</strong>
+                  <div class="poster-preview">
+                    <img
+                      src="tai-nguyen/hinh-anh/du-an/ho-so-ca-nhan.png"
+                      alt="Personal Portfolio interface preview"
+                      width="960"
+                      height="620"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="poster-bottom">
+                    <span>Personal Portfolio</span
+                    ><span aria-hidden="true">↗</span>
+                  </div></span
+                >
+              </button>
+            </div>
+            <div class="project-caption" aria-live="polite" aria-atomic="true">
+              <div>
+                <p class="micro" id="project-stack">Python / FastAPI / MySQL</p>
+                <h3 id="project-title">Cold-Chain-AI</h3>
+                <p id="project-description">
+                  Temperature, humidity and transit monitoring.
+                </p>
+              </div>
+              <div class="deck-controls">
+                <button
+                  class="arrow-button"
+                  id="project-prev"
+                  aria-label="Previous project"
+                >
+                  ←</button
+                ><span id="project-count">01 / 05</span
+                ><button
+                  class="arrow-button"
+                  id="project-next"
+                  aria-label="Next project"
+                >
+                  →</button
+                ><button class="text-button" id="project-open">
+                  View project ↗
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="kinetic-section dark-section scroll-scene"
+        data-scene="kinetic"
+        aria-label="Design, build, code and ship"
+      >
+        <div class="scene-pin kinetic-pin">
+          <div class="kinetic-backdrop" aria-hidden="true">
+            <span data-word="WEB · LOGISTICS"></span
+            ><span data-word="SYSTEMS · DATA"></span
+            ><span data-word="AI · ENGINEERING"></span>
+          </div>
+          <div class="kinetic-type" aria-hidden="true">
+            <span data-word="BUILD"></span><span data-word="DESIGN"></span
+            ><span data-word="CODE"></span><span data-word="SHIP"></span>
+          </div>
+          <p class="kinetic-caption micro">
+            FROM AN IDEA TO A WORKING APPLICATION.
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="practice"
+        class="practice-section dark-section scroll-scene"
+        data-scene="practice"
+        aria-labelledby="practice-title"
+      >
+        <div class="scene-pin practice-pin">
+          <p class="section-label">03 / PROJECTS & PRACTICE</p>
+          <h2 class="practice-section-title" id="practice-title">
+            PROJECTS & PRACTICAL EXPERIENCE
+          </h2>
+          <div class="practice-visual">
+            <div
+              class="practice-card mint"
+              data-practice-card="0"
+              aria-hidden="true"
+            >
+              <div class="poster-top"><span>COLD CHAIN</span></div>
+              <svg
+                class="poster-symbol"
+                viewBox="0 0 160 160"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path
+                  d="M30 45h100v80H30zM30 85h100M80 45v80M45 110l22-33 22 16 28-37"
+                />
+                <path d="M68 20v25m25-25v25m-25 80v25m25-25v25" /></svg
+              ><strong class="poster-monogram">CC.</strong
+              ><span class="mini-name">Cold-Chain-AI</span>
+            </div>
+            <div
+              class="practice-card violet"
+              data-practice-card="1"
+              aria-hidden="true"
+            >
+              <div class="poster-top"><span>COMPUTER VISION</span></div>
+              <svg
+                class="poster-symbol"
+                viewBox="0 0 160 160"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <rect x="20" y="48" width="120" height="65" rx="8" />
+                <path
+                  d="M35 30H15v20m110-20h20v20M15 118v20h20m90 0h20v-20M42 68v27m16-27v27m17-27v27m20-27v27m23-27v27"
+                /></svg
+              ><strong class="poster-monogram">LP.</strong
+              ><span class="mini-name">License Plate Recognition</span>
+            </div>
+            <div
+              class="practice-card amber"
+              data-practice-card="2"
+              aria-hidden="true"
+            >
+              <div class="poster-top"><span>TIME-SERIES DATA</span></div>
+              <svg
+                class="poster-symbol"
+                viewBox="0 0 160 160"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M20 20v120h125M30 115l27-20 25 10 20-50 22 15 21-40" />
+                <circle cx="103" cy="55" r="9" /></svg
+              ><strong class="poster-monogram">AU.</strong
+              ><span class="mini-name">Gold Price Forecasting</span>
+            </div>
+            <div
+              class="practice-card blue"
+              data-practice-card="3"
+              aria-hidden="true"
+            >
+              <div class="poster-top"><span>MACHINE LEARNING</span></div>
+              <svg
+                class="poster-symbol"
+                viewBox="0 0 160 160"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <circle cx="80" cy="80" r="45" />
+                <path d="M35 80h90M80 35v90M47 47l66 66m0-66-66 66" />
+                <circle cx="80" cy="80" r="16" /></svg
+              ><strong class="poster-monogram">DL.</strong
+              ><span class="mini-name">Deep Learning Practice</span>
+            </div>
+            <div
+              class="practice-card rose"
+              data-practice-card="4"
+              aria-hidden="true"
+            >
+              <div class="poster-top"><span>FRONTEND DEVELOPMENT</span></div>
+              <svg
+                class="poster-symbol"
+                viewBox="0 0 160 160"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <rect x="20" y="30" width="120" height="100" rx="6" />
+                <path
+                  d="M20 55h120M40 43h1m10 0h1m10 0h1M55 75l-15 17 15 17m50-34 15 17-15 17m-18-39-14 45"
+                /></svg
+              ><strong class="poster-monogram">BG.</strong
+              ><span class="mini-name">Personal Portfolio</span>
+            </div>
+          </div>
+          <div class="practice-copy">
+            <div class="practice-entries">
+              <article class="practice-entry">
+                <p class="micro">01 / APPLICATION DEVELOPMENT</p>
+                <h3>Full-stack projects</h3>
+                <p>
+                  Building the interface, API and database together. Cold-chain
+                  monitoring and commodity price forecasting give me practical
+                  problems to work through.
+                </p>
+                <span>React · FastAPI · MySQL</span>
+              </article>
+              <article class="practice-entry">
+                <p class="micro">02 / COMPUTER VISION</p>
+                <h3>From pixels to decisions</h3>
+                <p>
+                  Training YOLO detectors, cleaning recognized plate text and
+                  connecting camera processing to vehicle records and gate
+                  interfaces.
+                </p>
+                <span>Python · YOLO · OpenCV</span>
+              </article>
+              <article class="practice-entry">
+                <p class="micro">03 / EXPERIMENTATION</p>
+                <h3>Test. Compare. Learn.</h3>
+                <p>
+                  Preparing data, training neural networks and comparing model
+                  configurations. I document experiments and inspect the results
+                  before making changes.
+                </p>
+                <span>Python · NumPy · Pandas</span>
+              </article>
+              <article class="practice-entry">
+                <p class="micro">04 / COMMUNITY</p>
+                <h3>Learning in the open</h3>
+                <p>
+                  Sharing code on GitHub, creating technical content on TikTok
+                  and joining study groups, design reviews and testing exercises
+                  at UTH.
+                </p>
+                <span>GitHub · Technical content · Collaboration</span>
+              </article>
+            </div>
+            <div class="practice-summary">
+              <h3>FOUR CHAPTERS.<br />ONE PRACTICE.</h3>
+              <p>
+                Software, data and logistics come together through practical
+                work.
+              </p>
+              <ol>
+                <li>Full-stack development</li>
+                <li>Computer vision</li>
+                <li>Model experiments</li>
+                <li>Technical community</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="skills"
+        class="skills-section light-section"
+        data-enter="skills"
+        aria-labelledby="skills-title"
+      >
+        <div class="skills-layout">
+          <div class="skills-heading">
+            <p class="section-label">04 / CAPABILITIES</p>
+            <h2 id="skills-title" class="display-title">
+              <span class="stack-tech">TECH</span
+              ><span class="stack-word">STACK.</span>
+            </h2>
+            <p>The tools I use to connect<br />interfaces, systems and data.</p>
+          </div>
+          <div class="skills-content">
+            <div class="skill-groups">
+              <article class="stack-group">
+                <div class="skill-visual">
+                  <svg
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="m15 20-10 12 10 12m30-24 10 12-10 12M36 12 25 52"
+                    />
+                  </svg>
+                  <div class="skill-logos">
+                    <img
+                      src="tai-nguyen/bieu-tuong/python.svg"
+                      alt="Python"
+                      title="Python"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    /><img
+                      src="tai-nguyen/bieu-tuong/cplusplus.svg"
+                      alt="C / C++"
+                      title="C / C++"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    /><img
+                      src="tai-nguyen/bieu-tuong/java.svg"
+                      alt="Java"
+                      title="Java"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    /><img
+                      src="tai-nguyen/bieu-tuong/javascript.svg"
+                      alt="JavaScript"
+                      title="JavaScript"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <h3>01 / LANGUAGES</h3>
+                <p>
+                  Python · C / C++ · Java<br />JavaScript · HTML · CSS · SQL
+                </p>
+              </article>
+              <article class="stack-group">
+                <div class="skill-visual">
+                  <svg
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    aria-hidden="true"
+                  >
+                    <rect x="5" y="10" width="48" height="34" />
+                    <path
+                      d="M5 18h48M14 25h13v12H14m18-12h13m-13 6h13m-13 6h8M53 27h9v27H39V44"
+                    />
+                  </svg>
+                  <div class="skill-logos">
+                    <img
+                      src="tai-nguyen/bieu-tuong/react.svg"
+                      alt="React"
+                      title="React"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    /><img
+                      src="tai-nguyen/bieu-tuong/fastapi.svg"
+                      alt="FastAPI"
+                      title="FastAPI"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <h3>02 / FRONTEND & BACKEND</h3>
+                <p>React · FastAPI<br />REST APIs · Responsive interfaces</p>
+              </article>
+              <article class="stack-group">
+                <div class="skill-visual">
+                  <svg
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    aria-hidden="true"
+                  >
+                    <ellipse cx="18" cy="12" rx="12" ry="5" />
+                    <path
+                      d="M6 12v30c0 7 24 7 24 0V12M6 22c0 7 24 7 24 0m0 10h20m-8-9 9 9-9 9"
+                    />
+                  </svg>
+                  <div class="skill-logos">
+                    <img
+                      src="tai-nguyen/bieu-tuong/opencv.svg"
+                      alt="OpenCV"
+                      title="OpenCV"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    /><img
+                      src="tai-nguyen/bieu-tuong/scikitlearn.svg"
+                      alt="Scikit-Learn"
+                      title="Scikit-Learn"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    /><img
+                      src="tai-nguyen/bieu-tuong/mysql.svg"
+                      alt="MySQL"
+                      title="MySQL"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <h3>03 / VISION & DATA</h3>
+                <p>YOLO · OpenCV · Scikit-Learn<br />NumPy · Pandas · MySQL</p>
+              </article>
+              <article class="stack-group">
+                <div class="skill-visual">
+                  <svg
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    aria-hidden="true"
+                  >
+                    <rect x="6" y="12" width="18" height="14" />
+                    <rect x="37" y="36" width="18" height="14" />
+                    <path d="M24 19h23v17M15 26v17h22" />
+                  </svg>
+                  <div class="skill-logos">
+                    <img
+                      src="tai-nguyen/bieu-tuong/git.svg"
+                      alt="Git"
+                      title="Git"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    /><img
+                      src="tai-nguyen/bieu-tuong/linux.svg"
+                      alt="Linux"
+                      title="Linux"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    /><img
+                      src="tai-nguyen/bieu-tuong/html5.svg"
+                      alt="HTML / CSS"
+                      title="HTML / CSS"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <h3>04 / TOOLS & WORKFLOW</h3>
+                <p>Git · GitHub · Linux<br />Testing · Technical IT English</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="numbers-section dark-section scroll-scene"
+        data-scene="numbers"
+        aria-labelledby="numbers-title"
+      >
+        <div class="scene-pin numbers-pin">
+          <h2 class="sr-only" id="numbers-title">
+            Portfolio and academic facts
+          </h2>
+          <p class="section-label">05 / A FEW NUMBERS</p>
+          <div
+            class="number-item"
+            style="--bar-height: 8%; --bar-color: #9c8aaf"
+          >
+            <span class="number-index">01</span
+            ><strong data-count="5">5</strong>
+            <p>Personal projects</p>
+            <div class="number-bar" aria-hidden="true"></div>
+          </div>
+          <div
+            class="number-item"
+            style="--bar-height: 31%; --bar-color: #91b6b1"
+          >
+            <span class="number-index">02</span
+            ><strong data-count="12">12</strong>
+            <p>Tools & technologies</p>
+            <div class="number-bar" aria-hidden="true"></div>
+          </div>
+          <div
+            class="number-item"
+            style="--bar-height: 23%; --bar-color: #a8b578"
+          >
+            <span class="number-index">03</span
+            ><strong data-count="3">3</strong>
+            <p>Year of study</p>
+            <div class="number-bar" aria-hidden="true"></div>
+          </div>
+          <div
+            class="number-item"
+            style="--bar-height: 61%; --bar-color: #967db1"
+          >
+            <span class="number-index">04</span
+            ><strong data-count="3.6">3.6</strong>
+            <p>GPA / 4.0<span>Semester 2, Year 2</span></p>
+            <div class="number-bar" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="education"
+        class="education-section light-section scroll-scene"
+        data-scene="education"
+        aria-labelledby="education-title"
+      >
+        <div class="scene-pin education-pin">
+          <div class="education-copy">
+            <p class="section-label">06 / EDUCATION & CREDENTIALS</p>
+            <h2 id="education-title" class="display-title">
+              BUILT ON<br /><span class="muted">GOOD</span><br /><span
+                class="muted"
+                >FOUNDATIONS.</span
+              >
+            </h2>
+            <div class="education-current" aria-live="polite">
+              <p class="micro" id="record-label">2024 — PRESENT / THIRD YEAR</p>
+              <h3 id="record-title">
+                Smart Logistics &<br />Supply Chain Engineering
+              </h3>
+              <p id="record-description">
+                University of Transport Ho Chi Minh City (UTH)
+              </p>
+            </div>
+            <div class="record-controls">
+              <button
+                class="arrow-button"
+                id="record-prev"
+                aria-label="Previous education record"
+              >
+                ←</button
+              ><span id="record-count">01 / 04</span
+              ><button
+                class="arrow-button"
+                id="record-next"
+                aria-label="Next education record"
+              >
+                →
+              </button>
+            </div>
+            <div class="certificates">
+              <button class="certificate-link" data-certificate>
+                View certificate <span aria-hidden="true">↗</span>
+              </button>
+              <span class="certificate-issuer">Google for Education</span>
+            </div>
+          </div>
+          <div
+            class="education-records"
+            role="region"
+            aria-label="Education, certification and coursework"
+          >
+            <article class="learning-record" data-record="0">
+              <div class="record-head">
+                <span>EDUCATION RECORD</span><span>01</span>
+              </div>
+              <img
+                class="uth-logo"
+                src="tai-nguyen/hinh-anh/logo-uth.png"
+                alt="UTH — University of Transport Ho Chi Minh City"
+                width="1024"
+                height="190"
+                loading="lazy"
+              />
+              <p class="record-kicker">BACHELOR OF ENGINEERING</p>
+              <h3>Smart Logistics &<br />Supply Chain Engineering</h3>
+              <div class="record-rule"></div>
+              <dl>
+                <div>
+                  <dt>Student</dt>
+                  <dd>Bui Gia Hung</dd>
+                </div>
+                <div>
+                  <dt>Timeline</dt>
+                  <dd>2024 — Present</dd>
+                </div>
+                <div>
+                  <dt>Academic year</dt>
+                  <dd>Third year</dd>
+                </div>
+              </dl>
+              <span class="record-foot">HO CHI MINH CITY, VIETNAM</span>
+            </article>
+            <article class="learning-record" data-record="1">
+              <div class="record-head">
+                <span>ACADEMIC ACHIEVEMENT</span><span>02</span>
+              </div>
+              <p class="record-kicker">SEMESTER 2 / YEAR 2</p>
+              <h3 class="gpa-display">3.6<span>/ 4.0</span></h3>
+              <p class="record-subtitle">Semester GPA</p>
+              <div class="record-rule"></div>
+              <p>High distinction academic semester achievement.</p>
+              <p class="record-foot">BUI GIA HUNG / UTH</p>
+            </article>
+            <article class="learning-record certificate-record" data-record="2">
+              <div class="record-head">
+                <span>GOOGLE FOR EDUCATION</span><span>03</span>
+              </div>
+              <button
+                class="certificate-preview"
+                data-certificate
+                aria-label="View Gemini Certified Student certificate in full"
+              >
+                <img
+                  src="tai-nguyen/hinh-anh/chung-nhan-gemini.png"
+                  alt="Gemini Certified Student — University certificate awarded to Gia Hưng Bùi"
+                  width="1494"
+                  height="1052"
+                  loading="lazy"
+                />
+                <span class="certificate-expand" aria-hidden="true">↗</span>
+              </button>
+              <h3>Gemini Certified Student</h3>
+              <p class="certificate-level">University · Gia Hưng Bùi</p>
+              <span class="record-foot"
+                >ISSUED 10/02/2026 · VALID THROUGH 10/02/2029</span
+              >
+            </article>
+            <article class="learning-record" data-record="3">
+              <div class="record-head">
+                <span>SELECTED COURSEWORK</span><span>04</span>
+              </div>
+              <p class="record-kicker">SOFTWARE, DATA & LOGISTICS</p>
+              <h3>Connecting software<br />to operations.</h3>
+              <ul>
+                <li>Smart Logistics & E-Logistics</li>
+                <li>Intelligent Transportation Systems</li>
+                <li>Database Design & Software Engineering</li>
+                <li>Applied Machine Learning</li>
+                <li>Data Structures & Algorithms</li>
+              </ul>
+              <span class="record-foot">UTH / BUI GIA HUNG</span>
+            </article>
+          </div>
+          <p class="education-note">
+            Vietnamese · Technical IT English<br />Interests: open-source
+            projects, technical content and collaborative study.
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="approach"
+        class="approach-section light-section"
+        aria-labelledby="approach-title"
+      >
+        <div class="approach-heading">
+          <div>
+            <p class="section-label">07 / HOW I WORK</p>
+            <h2 id="approach-title" class="display-title approach-title">
+              <span class="ink-line">FROM CONCEPT</span
+              ><span class="ink-line">TO PRODUCTION.</span>
+            </h2>
+          </div>
+          <p>
+            Understand the problem.<br />Build the connection.<br />Test the
+            result.
+          </p>
+        </div>
+        <div class="approach-rows">
+          <details class="approach-row">
+            <summary>
+              <span class="micro">01</span>
+              <h3>WEB APPLICATIONS</h3>
+              <p>Interfaces, APIs and databases<br />that work together.</p>
+              <svg
+                class="system-diagram"
+                viewBox="0 0 260 100"
+                fill="none"
+                aria-hidden="true"
+              >
+                <rect x="28" y="18" width="204" height="66" />
+                <rect x="20" y="10" width="204" height="66" />
+                <rect x="12" y="2" width="204" height="66" />
+                <path
+                  d="M12 15h204M23 9h2m5 0h2m5 0h2M112 29h88m-88 9h78m-78 9h84m-84 9h60"
+                />
+                <rect
+                  class="diagram-accent"
+                  x="29"
+                  y="27"
+                  width="67"
+                  height="29"
+                />
+              </svg>
+              <svg
+                class="row-rail"
+                viewBox="0 0 1000 8"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path d="M3 4h994" />
+                <circle cx="3" cy="4" r="1.8" />
+                <circle cx="340" cy="4" r="1.8" />
+                <circle cx="670" cy="4" r="1.8" />
+                <circle cx="997" cy="4" r="1.8" />
+              </svg>
+            </summary>
+            <div class="approach-detail">
+              <p>
+                I build responsive web interfaces, REST endpoints and relational
+                data models. My Cold-Chain-AI and Gold Price Forecasting
+                projects put those layers together.
+              </p>
+              <button class="text-button" data-project="cold">
+                Explore Cold-Chain-AI ↗
+              </button>
+            </div>
+          </details>
+          <details class="approach-row">
+            <summary>
+              <span class="micro">02</span>
+              <h3>VISION & DATA</h3>
+              <p>From raw images and readings<br />to useful information.</p>
+              <svg
+                class="system-diagram"
+                viewBox="0 0 260 100"
+                fill="none"
+                aria-hidden="true"
+              >
+                <rect x="14" y="12" width="98" height="62" />
+                <rect x="20" y="18" width="98" height="62" />
+                <rect x="157" y="21" width="85" height="51" />
+                <path
+                  d="M118 46h39m-10-5 10 5-10 5M171 34h57m-57 9h49m-49 9h55m-55 9h39"
+                />
+                <rect
+                  class="diagram-accent"
+                  x="31"
+                  y="34"
+                  width="49"
+                  height="29"
+                />
+              </svg>
+              <svg
+                class="row-rail"
+                viewBox="0 0 1000 8"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path d="M3 4h994" />
+                <circle cx="3" cy="4" r="1.8" />
+                <circle cx="340" cy="4" r="1.8" />
+                <circle cx="670" cy="4" r="1.8" />
+                <circle cx="997" cy="4" r="1.8" />
+              </svg>
+            </summary>
+            <div class="approach-detail">
+              <p>
+                I work with image preprocessing, YOLO detection and time-series
+                models, then connect the output to an application people can
+                use.
+              </p>
+              <button class="text-button" data-project="alpr">
+                Explore vehicle recognition ↗
+              </button>
+            </div>
+          </details>
+          <details class="approach-row">
+            <summary>
+              <span class="micro">03</span>
+              <h3>LOGISTICS SYSTEMS</h3>
+              <p>Software grounded in<br />operational requirements.</p>
+              <svg
+                class="system-diagram"
+                viewBox="0 0 260 100"
+                fill="none"
+                aria-hidden="true"
+              >
+                <rect x="96" y="2" width="68" height="36" />
+                <rect x="8" y="61" width="68" height="34" />
+                <rect x="96" y="61" width="68" height="34" />
+                <rect x="184" y="61" width="68" height="34" />
+                <path d="M130 38v13H42v10m88-10v10m0-10h88v10" />
+                <path
+                  class="diagram-accent"
+                  d="M110 10h40v20h-40zM20 69h44v18H20zM108 69h44v18h-44zM196 69h44v18h-44z"
+                />
+              </svg>
+              <svg
+                class="row-rail"
+                viewBox="0 0 1000 8"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path d="M3 4h994" />
+                <circle cx="3" cy="4" r="1.8" />
+                <circle cx="340" cy="4" r="1.8" />
+                <circle cx="670" cy="4" r="1.8" />
+                <circle cx="997" cy="4" r="1.8" />
+              </svg>
+            </summary>
+            <div class="approach-detail">
+              <p>
+                Cold-chain quality, vehicle access and smart transportation
+                provide the context for my projects. I want to develop this work
+                further with an experienced engineering team.
+              </p>
+              <a class="text-button" href="#contact"
+                >Discuss an opportunity ↗</a
+              >
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section
+        id="contact"
+        class="contact-section scroll-scene"
+        data-scene="contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="scene-pin contact-pin">
+          <div class="contact-canvas dark-section">
+            <p class="section-label">08 / START A CONVERSATION</p>
+            <h2 id="contact-title">
+              <span data-footer-line>LET'S BUILD</span
+              ><span data-footer-line>SOMETHING</span
+              ><span data-footer-line>REMARKABLE</span
+              ><span data-footer-line>TOGETHER.</span>
+            </h2>
+            <button class="contact-cta" id="open-contact">
+              Have an opportunity? <span>Let's talk ↗</span>
+            </button>
+            <div class="contact-bottom">
+              <div>
+                <p class="micro">PHONE / ZALO</p>
+                <a
+                  href="https://zalo.me/0335883437"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >0335 883 437 ↗</a
+                ><button
+                  class="text-button"
+                  id="copy-phone"
+                  aria-label="Copy phone number"
+                >
+                  Copy number
+                </button>
+              </div>
+              <div>
+                <a
+                  href="https://github.com/Buigiahung1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub ↗</a
+                ><a
+                  href="https://www.tiktok.com/@bghme"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >TikTok ↗</a
+                >
+              </div>
+              <div>
+                <span>BUI GIA HUNG</span><span>HO CHI MINH CITY, VN</span
+                ><span>© <span id="current-year">2026</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <dialog
+      id="certificate-dialog"
+      class="certificate-dialog"
+      aria-labelledby="certificate-title"
+    >
+      <div class="dialog-top">
+        <span>CREDENTIAL</span
+        ><button
+          class="icon-button"
+          id="close-certificate"
+          aria-label="Close certificate"
+        >
+          ×
+        </button>
+      </div>
+      <h2 id="certificate-title">Gemini Certified Student</h2>
+      <p class="certificate-dialog-meta">
+        Google for Education · University · Gia Hưng Bùi
+      </p>
+      <img
+        class="certificate-full"
+        src="tai-nguyen/hinh-anh/chung-nhan-gemini.png"
+        alt="Full certificate: Gemini Certified Student — University, awarded to Gia Hưng Bùi. Issued 10/02/2026; valid through 10/02/2029."
+        width="1494"
+        height="1052"
+        loading="lazy"
+      />
+      <a
+        class="text-button"
+        href="tai-nguyen/hinh-anh/chung-nhan-gemini.png"
+        target="_blank"
+        rel="noopener"
+        >Open original image <span aria-hidden="true">↗</span></a
+      >
+    </dialog>
+    <dialog id="project-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-top">
+        <span>PROJECT DETAILS</span
+        ><button
+          class="icon-button"
+          id="close-project"
+          aria-label="Close project details"
+        >
+          ×
+        </button>
+      </div>
+      <div id="project-detail-content"></div>
+    </dialog>
+    <dialog
+      class="contact-dialog"
+      id="contact-dialog"
+      aria-labelledby="contact-dialog-title"
+    >
+      <div class="dialog-top">
+        <span>CONTACT</span
+        ><button
+          class="icon-button"
+          id="close-contact"
+          aria-label="Close contact form"
+        >
+          ✕
+        </button>
+      </div>
+      <h2 id="contact-dialog-title">Send me a message</h2>
+      <p class="form-note">
+        Prepare your message here, then copy it to Zalo or save a draft.
+      </p>
+      <form id="contact-form" novalidate>
+        <div class="field">
+          <label for="name">Your name</label
+          ><input
+            id="name"
+            name="name"
+            autocomplete="name"
+            required
+            minlength="2"
+            maxlength="100"
+            placeholder="Your name"
+            aria-describedby="name-error"
+          /><span class="field-error" id="name-error"></span>
+        </div>
+        <div class="field">
+          <label for="email">Your email</label
+          ><input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+            maxlength="254"
+            placeholder="you@company.com"
+            aria-describedby="email-error"
+          /><span class="field-error" id="email-error"></span>
+        </div>
+        <div class="field">
+          <label for="message">Your message</label
+          ><textarea
+            id="message"
+            name="message"
+            rows="4"
+            required
+            minlength="10"
+            maxlength="3000"
+            placeholder="A little about the project or opportunity"
+            aria-describedby="message-error"
+          ></textarea
+          ><span class="field-error" id="message-error"></span>
+        </div>
+        <button class="solid-button form-submit" type="submit">
+          Prepare message <span aria-hidden="true">↗</span>
+        </button>
+        <div class="form-result" id="form-result" hidden>
+          <p role="status">Your draft is ready</p>
+          <div>
+            <button type="button" id="copy-message">Copy message ⧉</button
+            ><a id="download-message" download="message-for-bui-gia-hung.txt"
+              >Save draft ↓</a
+            ><a
+              href="https://zalo.me/0335883437"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Open Zalo ↗</a
+            >
+          </div>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status"></div>
+  </body>
+</html>

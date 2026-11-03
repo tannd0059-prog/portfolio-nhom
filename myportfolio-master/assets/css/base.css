@@ -1,0 +1,228 @@
+/* =====================================================================
+   base.css — biến màu, reset, bố cục chung, navbar, nút, tab, modal, footer
+   Chủ đề màu: XANH DƯƠNG (blue) — đổi --accent / --accent-2 để đổi tông màu.
+   ===================================================================== */
+
+/* ---------- 1. Biến màu ---------- */
+:root {
+  --bg: #f4f8ff;
+  --bg-alt: #e9f1ff;
+  --card: #ffffff;
+  --text: #0a1a3a;
+  --muted: #51627f;
+  --border: #d3e1fa;
+  --accent: #2563eb;
+  --accent-2: #06b6d4;
+  --accent-soft: rgba(37, 99, 235, .10);
+  --accent-glow: rgba(37, 99, 235, .35);
+  --shadow: 0 8px 28px rgba(16, 52, 120, .09);
+  --shadow-lg: 0 18px 50px rgba(16, 52, 120, .18);
+  --code-bg: #0b1736;
+  --radius: 18px;
+  --font: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+  --nav-h: 66px;
+}
+
+:root[data-theme="dark"] {
+  --bg: #060d1f;
+  --bg-alt: #0a1530;
+  --card: #0f1d3d;
+  --text: #e8f0ff;
+  --muted: #9db0d3;
+  --border: #1d3160;
+  --accent: #4c8dff;
+  --accent-2: #22d3ee;
+  --accent-soft: rgba(76, 141, 255, .14);
+  --accent-glow: rgba(76, 141, 255, .45);
+  --shadow: 0 8px 28px rgba(0, 0, 0, .4);
+  --shadow-lg: 0 18px 50px rgba(0, 0, 0, .55);
+  --code-bg: #050b1c;
+}
+
+/* ---------- 2. Reset & nền ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 8px); -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+  transition: background .3s, color .3s;
+}
+body { min-height: 100vh; }
+html.modal-open { overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul, ol { list-style: none; }
+button, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--accent); color: #fff; }
+
+.skip-link {
+  position: fixed; left: 12px; top: -60px; z-index: 200; padding: 10px 16px; border-radius: 10px;
+  background: var(--accent); color: #fff; font-weight: 600; transition: top .2s;
+}
+.skip-link:focus { top: 12px; }
+
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 120;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: scaleX(0); transform-origin: 0 50%;
+}
+
+/* ---------- 3. Navbar ---------- */
+.navbar {
+  position: fixed; inset: 0 0 auto 0; z-index: 100; height: var(--nav-h); padding: 0 clamp(16px, 3vw, 32px);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent; transition: border-color .3s, box-shadow .3s;
+}
+.navbar.scrolled { border-bottom-color: var(--border); box-shadow: 0 4px 24px rgba(10, 30, 80, .06); }
+.brand { font-weight: 800; font-size: 1.1rem; letter-spacing: -.02em; white-space: nowrap; }
+.brand span { color: var(--accent); }
+
+.nav-links { display: flex; gap: 2px; }
+.nav-links a {
+  position: relative; padding: 7px 11px; border-radius: 999px; font-size: .86rem; font-weight: 500; color: var(--muted);
+  white-space: nowrap; transition: color .2s, background .2s;
+}
+.nav-links a:hover { color: var(--accent); background: var(--accent-soft); }
+.nav-links a.active { color: #fff; background: linear-gradient(90deg, var(--accent), var(--accent-2)); box-shadow: 0 4px 14px var(--accent-glow); }
+
+.nav-actions { display: flex; align-items: center; gap: 8px; }
+.icon-btn {
+  width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border);
+  background: var(--card); display: grid; place-items: center; font-size: 1rem;
+  transition: transform .2s, border-color .2s, color .2s;
+}
+.icon-btn:hover { transform: translateY(-2px) rotate(8deg); border-color: var(--accent); color: var(--accent); }
+.menu-btn { display: none; }
+
+.hub-btn {
+  height: 40px; padding: 0 16px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px;
+  font-size: .88rem; font-weight: 600; color: #fff; white-space: nowrap;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: transform .2s, box-shadow .2s;
+}
+.hub-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px var(--accent-glow); }
+
+/* ---------- 4. Bố cục các phần ---------- */
+main { counter-reset: sec; }
+.section { padding: clamp(64px, 9vw, 104px) clamp(18px, 4vw, 32px); counter-increment: sec; position: relative; }
+.section.alt { background: var(--bg-alt); }
+.container { max-width: 1120px; margin: 0 auto; }
+
+.section-head { margin-bottom: clamp(28px, 4vw, 44px); }
+.section-title {
+  display: flex; align-items: center; gap: 14px;
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 800; letter-spacing: -.025em; line-height: 1.2;
+}
+.section-title::before {
+  content: counter(sec, decimal-leading-zero); font-family: var(--mono); font-size: .8rem; font-weight: 500; letter-spacing: .05em;
+  padding: 4px 10px; border-radius: 999px; color: var(--accent); background: var(--accent-soft); border: 1px solid var(--border);
+}
+.section-title::after { content: ""; flex: 1; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--accent), transparent); opacity: .35; }
+
+.lead-block { color: var(--muted); font-size: 1.05rem; max-width: 820px; margin-bottom: 28px; }
+.sub-title { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; margin: 0 0 18px; }
+.sub-title i { color: var(--accent); }
+.sub-title:not(:first-child) { margin-top: 40px; }
+.eyebrow { font-family: var(--mono); font-size: .75rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.grad-text {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ---------- 5. Nút, thẻ, tag ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 24px; border-radius: 999px;
+  font-weight: 600; font-size: .95rem; border: 1px solid var(--border); background: var(--card); color: var(--text);
+  transition: transform .2s, box-shadow .2s, border-color .2s, background .2s;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--accent); }
+.btn.primary { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #fff; border-color: transparent; box-shadow: 0 8px 22px var(--accent-glow); }
+.btn.primary:hover { box-shadow: 0 12px 30px var(--accent-glow); }
+.btn.small { padding: 7px 16px; font-size: .85rem; }
+.btn.ghost { background: transparent; }
+
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { padding: 3px 11px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: .78rem; font-weight: 600; }
+
+/* ---------- 6. Tabs ---------- */
+.tablist { display: inline-flex; flex-wrap: wrap; gap: 6px; padding: 6px; margin-bottom: 24px; border-radius: 999px; background: var(--card); border: 1px solid var(--border); }
+.tab {
+  display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border: 0; border-radius: 999px; background: transparent;
+  color: var(--muted); font-weight: 600; font-size: .92rem; transition: color .2s, background .2s;
+}
+.tab:hover { color: var(--accent); }
+.tab[aria-selected="true"] { color: #fff; background: linear-gradient(90deg, var(--accent), var(--accent-2)); box-shadow: 0 4px 14px var(--accent-glow); }
+
+/* ---------- 7. Modal chi tiết dự án ---------- */
+.modal {
+  margin: auto; width: min(860px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow: auto;
+  border: 1px solid var(--border); border-radius: 22px; background: var(--card); color: var(--text); box-shadow: var(--shadow-lg); padding: 0;
+}
+.modal::backdrop { background: rgba(4, 12, 32, .62); backdrop-filter: blur(5px); }
+.modal[open] { animation: modalIn .35s cubic-bezier(.2, .9, .3, 1.2); }
+.modal-close { position: absolute; top: 14px; right: 14px; z-index: 2; }
+.project-detail { display: grid; grid-template-columns: 1fr 1.1fr; }
+.modal-media {
+  display: grid; place-items: center; min-height: 260px; padding: 24px; font-size: 3rem; color: var(--accent);
+  background: linear-gradient(135deg, var(--accent-soft), var(--bg-alt));
+}
+.modal-media img { width: 100%; height: 100%; max-height: 360px; object-fit: cover; border-radius: 12px; }
+.modal-media.is-contain img { object-fit: contain; }
+.modal-text { padding: 34px 30px; display: grid; gap: 12px; align-content: start; }
+.modal-text h3 { font-size: 1.5rem; line-height: 1.25; }
+.modal-text h4 { font-size: .95rem; margin-top: 6px; }
+.modal-text p { color: var(--muted); }
+.modal-text .btn { justify-self: start; margin-top: 8px; }
+.check-list { display: grid; gap: 6px; }
+.check-list li { position: relative; padding-left: 26px; color: var(--muted); font-size: .94rem; }
+.check-list li::before { content: "\f00c"; font-family: FontAwesome; position: absolute; left: 0; top: 0; color: var(--accent-2); }
+
+/* ---------- 8. Footer, nút lên đầu trang ---------- */
+.footer {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 24px; text-align: center;
+  padding: 30px 24px; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--border);
+}
+.footer a { color: var(--accent); font-weight: 600; }
+.footer a:hover { text-decoration: underline; }
+
+.to-top {
+  position: fixed; right: 20px; bottom: 20px; z-index: 90; width: 46px; height: 46px; border-radius: 50%; border: 0;
+  display: grid; place-items: center; font-size: 1.5rem; color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 10px 24px var(--accent-glow);
+  opacity: 0; transform: translateY(20px) scale(.8); pointer-events: none; transition: opacity .3s, transform .3s;
+}
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { transform: translateY(-4px); }
+
+@keyframes modalIn { from { opacity: 0; transform: translateY(24px) scale(.96); } to { opacity: 1; transform: none; } }
+
+/* ---------- 9. Responsive chung ---------- */
+@media (max-width: 1180px) {
+  .menu-btn { display: grid; }
+  .nav-links {
+    position: absolute; top: var(--nav-h); left: 0; right: 0; flex-direction: column; gap: 2px; padding: 10px 20px 18px;
+    background: var(--bg); border-bottom: 1px solid var(--border); box-shadow: 0 18px 30px rgba(10, 30, 80, .1);
+    max-height: calc(100vh - var(--nav-h)); overflow: auto;
+    opacity: 0; transform: translateY(-8px); pointer-events: none; visibility: hidden; transition: opacity .25s, transform .25s, visibility .25s;
+  }
+  .nav-links.open { opacity: 1; transform: none; pointer-events: auto; visibility: visible; }
+  .nav-links a { font-size: 1rem; padding: 11px 14px; border-radius: 12px; }
+}
+@media (max-width: 720px) {
+  .hub-btn { width: 40px; padding: 0; justify-content: center; }
+  .hub-btn span { display: none; }
+  .project-detail { grid-template-columns: 1fr; }
+  .modal-text { padding: 24px 20px 28px; }
+  .modal-media { min-height: 200px; }
+  .section-title::after { display: none; }
+}

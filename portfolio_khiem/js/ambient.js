@@ -17,7 +17,7 @@
       4: [{ k: 'glint', n: 18, c: ['255,255,255'], s: [10, 22], y: [.6, .95] }, { k: 'mote', n: 14, c: ['255,240,200'], s: [3, 6], vx: [.04, .16], vy: [-.08, .06] }]
     },
     night: {
-      1: [{ k: 'firefly', n: 34, c: ['214,255,120'], s: [11, 22], y: [.35, .98] }],
+      1: [{ k: 'twinkle', n: 30, c: ['255,255,255'], s: [2, 5], y: [0, .6] }, { k: 'firefly', n: 26, c: ['214,255,120'], s: [11, 22], y: [.35, .98] }],
       2: [{ k: 'bokeh', n: 22, c: ['255,120,200', '190,130,255'], s: [22, 46], vx: [-.1, .1], vy: [-.08, .05] }, { k: 'firefly', n: 10, c: ['255,228,150'], s: [10, 18] }],
       3: [{ k: 'spark', n: 36, c: NEON, s: [8, 18], vx: [-.12, .12], vy: [-.25, .05] }, { k: 'firefly', n: 8, c: ['255,228,150'], s: [10, 18] }],
       4: [{ k: 'ember', n: 32, c: ['255,150,60', '255,200,90'], s: [8, 16], vx: [-.15, .15], vy: [-.7, -.25] }, { k: 'firefly', n: 8, c: ['255,228,150'], s: [10, 18] }]
@@ -65,6 +65,7 @@
   function alphaOf(k, p, t) {
     const s = Math.sin(t * .001 * p.sp + p.ph);
     switch (k) {
+      case 'twinkle': return .2 + .8 * (s + 1) / 2;
       case 'glint': return Math.pow(Math.max(0, s), 3);                 // lóe sáng ngắn
       case 'spark': return Math.pow(Math.max(0, s), 2) * .95;
       case 'firefly': return Math.pow(Math.max(0, Math.sin(t * .0012 * p.sp + p.ph)), 2); // nhấp nháy chậm
@@ -84,14 +85,14 @@
         p.x += p.vx; p.y += p.vy + Math.sin(t * .002 * p.sp + p.ph) * .5;
       } else if (k === 'ember') {
         p.x += p.vx + Math.sin(t * .003 * p.sp + p.ph) * .5; p.y += p.vy;
-      } else if (k !== 'glint') {
+      } else if (k !== 'glint' && k !== 'twinkle') {
         p.x += p.vx; p.y += p.vy;
       }
       if (p.x < -60) p.x = w + 60; if (p.x > w + 60) p.x = -60;
       if (p.y < -60 || p.y > h + 60) {                               // ra khỏi màn hình thì hồi sinh ở phía đối diện
         const vy = p.vy;
         Object.assign(p, spawn(g.spec, true));
-        if (k === 'firefly' || k === 'glint') { const yr = g.spec.y || [0, 1]; p.y = rnd(yr[0], yr[1]) * h; }
+        if (k === 'firefly' || k === 'glint' || k === 'twinkle') { const yr = g.spec.y || [0, 1]; p.y = rnd(yr[0], yr[1]) * h; }
         else p.y = p.vy < 0 || (p.vy === 0 && vy < 0) ? h + 20 : -20;
       }
     }
@@ -113,6 +114,7 @@
   function loop(now) {
     const dt = Math.min(60, now - last); last = now;
     ctx.clearRect(0, 0, w, h);
+    if (document.documentElement.classList.contains('lite')) { requestAnimationFrame(loop); return; }   // chế độ nhẹ: không vẽ hạt
     ctx.globalCompositeOperation = 'lighter';
     groups.forEach((g) => { step(g, dt, now); draw(g, now); });
     ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;

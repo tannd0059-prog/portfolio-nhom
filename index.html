@@ -1,467 +1,1049 @@
-﻿<!DOCTYPE html>
-<html lang="vi" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio Nhóm 1 - Cổng khám phá tài năng và hồ sơ năng lực cá nhân của đội ngũ kỹ sư phần mềm, AI, Mobile & UI/UX từ UTH.">
-  <meta name="keywords" content="Portfolio Nhóm 1, Portfolio Directory, UTH, Developer Showcase, Frontend, Backend, AI, Mobile, UI/UX">
-  <meta name="author" content="Senior Frontend & UI/UX Designer">
-
-  <title>Portfolio Nhóm 1 | Khám Phá Tài Năng &amp; Năng Lực Sáng Tạo</title>
-
-  <!-- Favicon SVG -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%234F46E5'/><text x='50%' y='63%' font-family='sans-serif' font-weight='900' font-size='42' fill='%23ffffff' text-anchor='middle'>N1</text></svg>">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              indigo: '#4F46E5',
-              violet: '#7C3AED',
-              magenta: '#DB2777',
-              navy: '#0F172A',
-              subtext: '#64748B',
-              emerald: '#10B981',
-              softbg: '#FAF8FF',
-              tabinactive: '#F1F5F9'
-            }
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+  <title>UTH Web Dev Team | Cổng Tổng Hợp Portfolio Nhóm</title>
+  <meta name="description" content="Trang chủ tổng hợp Portfolio của các thành viên nhóm sinh viên CNTT - Đại học Giao thông Vận tải TP.HCM (UTH).">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --bg-card: rgba(17, 24, 39, 0.7);
+      --bg-card-hover: rgba(30, 41, 59, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(59, 130, 246, 0.4);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-glow: #2563eb;
+      --accent: #06b6d4;
+      --accent-purple: #8b5cf6;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --radius: 20px;
+    }
 
-  <!-- Custom Stylesheet for Nhóm 1 -->
-  <link rel="stylesheet" href="hub_assets/hub.css">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Background glow decorations */
+    .ambient-glow {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow-1 { top: -100px; left: 10%; width: 500px; height: 500px; background: #2563eb; }
+    .glow-2 { top: 30%; right: -100px; width: 600px; height: 600px; background: #8b5cf6; }
+    .glow-3 { bottom: 0; left: 20%; width: 500px; height: 500px; background: #06b6d4; }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #2563eb, #06b6d4);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+    }
+
+    .brand-info h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .header-badges {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .badge-uth {
+      padding: 0.4rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #60a5fa;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 3.5rem auto;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 1rem;
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      border-radius: 999px;
+      color: #c084fc;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, #60a5fa, #a78bfa, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 2rem;
+      background: rgba(17, 24, 39, 0.6);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      margin-bottom: 2.5rem;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+    }
+
+    .stat-item strong {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .stat-item span {
+      color: var(--text-muted);
+    }
+
+    /* Filter Bar */
+    .filter-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.25rem;
+      border-radius: 999px;
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-btn:hover {
+      background: rgba(59, 130, 246, 0.15);
+      color: #fff;
+      border-color: rgba(59, 130, 246, 0.35);
+    }
+
+    .filter-btn.active {
+      background: #2563eb;
+      color: #fff;
+      border-color: #3b82f6;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Cards Grid */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .member-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .member-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--card-accent, #3b82f6), transparent);
+      opacity: 0.8;
+      transition: height 0.3s ease;
+    }
+
+    .member-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-glow);
+      background: var(--bg-card-hover);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+    }
+
+    .member-card:hover::before {
+      height: 6px;
+    }
+
+    .card-top {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--card-accent, #3b82f6), #94a3b8);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      background: #1e293b;
+      display: block;
+    }
+
+    .member-header {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .member-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .member-role {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--card-accent, #60a5fa);
+      margin-bottom: 0.35rem;
+      line-height: 1.3;
+    }
+
+    .member-school {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .member-bio {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 1.3rem;
+      flex-grow: 1;
+    }
+
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.74rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #cbd5e1;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.75rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn-primary {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      background: var(--card-accent, #2563eb);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.15);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.7rem 0.9rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Explanation Section (Localhost & Ports) */
+    .guide-section {
+      background: rgba(17, 24, 39, 0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .guide-header {
+      margin-bottom: 2rem;
+    }
+
+    .guide-header h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .guide-header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .guide-box {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+
+    .guide-box.highlight {
+      border-color: rgba(59, 130, 246, 0.4);
+      background: rgba(37, 99, 235, 0.08);
+    }
+
+    .guide-box h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .guide-box p {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .code-pill {
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: #93c5fd;
+    }
+
+    /* Modal Live Preview */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-window {
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 1200px;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      animation: modalIn 0.25s ease-out;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 1.25rem;
+      background: #1e293b;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .modal-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-icon {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-icon:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-iframe {
+      width: 100%;
+      flex: 1;
+      border: none;
+      background: #fff;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .members-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-badges {
+        display: none;
+      }
+      .stats-bar {
+        border-radius: 16px;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .modal-window {
+        height: 95vh;
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
+<body>
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
 
-<body class="bg-mesh-nhom1-light dark:bg-mesh-nhom1-dark min-h-screen text-[#0F172A] dark:text-slate-100 flex flex-col transition-colors duration-300">
-
-  <!-- ==================== 1. HEADER / THANH ĐIỀU HƯỚNG ==================== -->
-  <header class="sticky top-0 z-40 nhom1-navbar transition-colors">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3.5 flex items-center justify-between gap-4">
-      
-      <!-- Brand Logo: PORTFOLIO NHÓM 1 -->
-      <a href="#" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#4F46E5] rounded-xl p-1">
-        <div class="w-10 h-10 rounded-2xl bg-[#4F46E5] flex items-center justify-center text-white shadow-md shadow-[#4F46E5]/25 group-hover:scale-105 transition-transform flex-shrink-0">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-          </svg>
-        </div>
-        <div class="flex flex-col">
-          <div class="flex items-center gap-2">
-            <span class="text-lg sm:text-xl font-black tracking-tight text-[#0F172A] dark:text-white uppercase">
-              PORTFOLIO <span class="text-[#4F46E5] dark:text-indigo-400">NHÓM 1</span>
-            </span>
-          </div>
-          <!-- Thẻ thông tin phụ: Badge "Đội ngũ Kỹ sư & Sáng tạo" -->
-          <span class="text-[11px] font-medium text-[#64748B] dark:text-slate-400 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#7C3AED]"></span>
-            <span>Đội ngũ Kỹ sư &amp; Sáng tạo &bull; UTH</span>
-          </span>
-        </div>
-      </a>
-
-      <!-- Tools: Quick Search hint, Dark Mode Toggle, and Live Portfolios Badge -->
-      <div class="flex items-center gap-2.5 sm:gap-3.5">
-        
-        <!-- Ô tìm kiếm nhanh (có phím tắt /) -->
-        <button 
-          onclick="document.getElementById('search-input')?.focus()"
-          class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#F1F5F9] dark:bg-slate-800 text-xs text-[#64748B] dark:text-slate-300 hover:text-[#0F172A] dark:hover:text-white transition-colors"
-          title="Bấm phím / để tìm nhanh"
-        >
-          <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-          <span>Tìm nhanh</span>
-          <kbd class="px-1.5 py-0.5 text-[10px] bg-white dark:bg-slate-700 rounded border border-slate-300 dark:border-slate-600 font-mono font-bold text-slate-600 dark:text-slate-200">/</kbd>
-        </button>
-
-        <!-- Dark / Light Mode Toggle Button -->
-        <button 
-          id="theme-toggle-btn"
-          type="button"
-          class="p-2.5 rounded-xl bg-[#F1F5F9] dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-[#0F172A] dark:text-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-[#4F46E5] cursor-pointer"
-          aria-label="Chuyển chế độ sáng/tối"
-        >
-          <svg id="theme-sun-icon" class="w-5 h-5 hidden text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-          </svg>
-          <svg id="theme-moon-icon" class="w-5 h-5 text-slate-700 dark:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-          </svg>
-        </button>
-
-        <!-- Status Live Badge: "6 Portfolios sẵn sàng" -->
-        <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/80 text-xs font-bold text-emerald-700 dark:text-emerald-300">
-          <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
-          <span>6 Portfolios Sẵn Sàng</span>
-        </div>
-
-      </div>
-
-    </div>
-  </header>
-
-
-  <!-- ==================== 2. HERO SECTION & BẢNG TÌM KIẾM ==================== -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6 text-center">
-    
-    <!-- Top Pill: "Không Gian Triển Lãm Hồ Sơ Năng Lực Nhóm 1" -->
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800/60 text-xs sm:text-sm font-semibold text-[#4F46E5] dark:text-indigo-400 mb-6">
-      <span class="w-2 h-2 rounded-full bg-[#7C3AED] animate-ping"></span>
-      <span>Không Gian Triển Lãm Hồ Sơ Năng Lực Nhóm 1</span>
-    </div>
-
-    <!-- Tiêu đề chính ấn tượng (Gradient Tím - Hồng quyến rũ) -->
-    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#0F172A] dark:text-white mb-6 leading-tight max-w-4xl mx-auto">
-      Khám Phá Tài Năng &amp; <br class="hidden sm:inline" />
-      <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#4F46E5] via-[#7C3AED] to-[#DB2777]">
-        Portfolio Đội Ngũ
-      </span>
-    </h1>
-
-    <!-- Mô tả ngắn: Giới thiệu các thành viên, chuyên môn và sản phẩm nổi bật -->
-    <p class="text-base sm:text-lg text-[#64748B] dark:text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-      Nơi hội tụ các chuyên môn vững chắc từ AI &amp; Thị giác máy tính, Lập trình ứng dụng Di động, Kiến trúc Hệ thống Backend, Thiết kế UI/UX tinh tế đến Phát triển Frontend hiện đại của Nhóm 1.
-    </p>
-
-    <!-- ==================== BẢNG THỐNG KÊ (METRIC CARDS - 4 Ô NỔI BẬT) ==================== -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto mb-12">
-      <!-- 1. Thành viên Nhóm 1 -->
-      <div class="nhom1-metric-card p-5 text-center">
-        <p class="text-2xl sm:text-4xl font-black text-[#4F46E5] dark:text-indigo-400 mb-1">6</p>
-        <p class="text-xs sm:text-sm font-semibold text-[#64748B] dark:text-slate-400">Thành viên Nhóm 1</p>
-      </div>
-      <!-- 2. Dự án hoàn thành -->
-      <div class="nhom1-metric-card p-5 text-center">
-        <p class="text-2xl sm:text-4xl font-black text-[#7C3AED] dark:text-violet-400 mb-1">15+</p>
-        <p class="text-xs sm:text-sm font-semibold text-[#64748B] dark:text-slate-400">Dự án hoàn thành</p>
-      </div>
-      <!-- 3. Lĩnh vực chuyên môn -->
-      <div class="nhom1-metric-card p-5 text-center">
-        <p class="text-2xl sm:text-4xl font-black text-[#DB2777] dark:text-pink-400 mb-1">5+</p>
-        <p class="text-xs sm:text-sm font-semibold text-[#64748B] dark:text-slate-400">Lĩnh vực chuyên môn</p>
-      </div>
-      <!-- 4. 100% Sẵn sàng hợp tác & Đúng tiến độ -->
-      <div class="nhom1-metric-card p-5 text-center border-emerald-100 dark:border-emerald-900/50">
-        <p class="text-2xl sm:text-4xl font-black text-[#10B981] mb-1">100%</p>
-        <p class="text-xs sm:text-sm font-semibold text-[#059669] dark:text-emerald-400">Hợp tác &amp; Đúng tiến độ</p>
-      </div>
-    </div>
-
-
-    <!-- ==================== THANH TÌM KIẾM & BỘ LỌC THÀNH VIÊN ==================== -->
-    <div class="max-w-4xl mx-auto space-y-6">
-      
-      <!-- Ô tìm kiếm lớn tìm theo tên, vị trí hoặc kỹ năng -->
-      <div class="relative group">
-        <div class="absolute inset-y-0 left-0 pl-4 sm:pl-5 flex items-center pointer-events-none text-slate-400 group-focus-within:text-[#4F46E5] transition-colors">
-          <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-        </div>
-        <input 
-          type="text" 
-          id="search-input"
-          placeholder="Tìm theo tên thành viên, vị trí (AI, Frontend...) hoặc kỹ năng (Python, React, Figma, Java, Kotlin)..."
-          class="w-full pl-12 sm:pl-14 pr-12 py-3.5 sm:py-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[#0F172A] dark:text-white placeholder-slate-400 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent shadow-sm transition-all"
-          autocomplete="off"
-        />
-        <button 
-          id="clear-search-btn"
-          type="button"
-          class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-[#0F172A] dark:hover:text-white cursor-pointer"
-          style="display: none;"
-          title="Xóa tìm kiếm"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Các tab lọc chuyên môn (Pill Tabs) -->
-      <div class="overflow-x-auto pb-2 scrollbar-none">
-        <div id="category-tabs-container" class="flex items-center gap-2 sm:gap-2.5 justify-start sm:justify-center min-w-max px-1">
-          <!-- Rendered dynamically by app.js -->
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="brand-logo">UTH</div>
+        <div class="brand-info">
+          <h1>Đại Học Giao Thông Vận Tải TP.HCM</h1>
+          <p>Khoa Công Nghệ Thông Tin • Bộ Môn Lập Trình Web</p>
         </div>
       </div>
-
-      <!-- Controls Row: Sort, View Mode, Result Count -->
-      <div class="flex flex-wrap items-center justify-between gap-3 pt-2 text-xs sm:text-sm">
-        <div id="result-count" class="text-[#64748B] dark:text-slate-400 font-medium">
-          Đang tải danh sách thành viên...
-        </div>
-
-        <div class="flex items-center gap-3">
-          <!-- Sắp xếp -->
-          <div class="flex items-center gap-2">
-            <span class="text-slate-400 hidden sm:inline">Sắp xếp:</span>
-            <select 
-              id="sort-select"
-              class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs sm:text-sm text-[#0F172A] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-[#4F46E5] cursor-pointer"
-            >
-              <option value="default">Mặc định (Khuyên dùng)</option>
-              <option value="name-asc">Tên (A &rarr; Z)</option>
-              <option value="role">Chuyên môn</option>
-              <option value="status">Ưu tiên sẵn sàng nhận việc</option>
-            </select>
-          </div>
-
-          <!-- View Mode Toggle (Grid vs List) -->
-          <div class="flex items-center bg-[#F1F5F9] dark:bg-slate-800 p-1 rounded-xl">
-            <button 
-              id="view-grid-btn"
-              type="button"
-              class="p-1.5 rounded-lg bg-[#4F46E5] text-white transition-colors cursor-pointer"
-              title="Xem dạng lưới Card"
-              aria-label="Xem dạng lưới Card"
-            >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-              </svg>
-            </button>
-            <button 
-              id="view-list-btn"
-              type="button"
-              class="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-[#0F172A] dark:hover:text-slate-200 transition-colors cursor-pointer"
-              title="Xem dạng danh sách rút gọn"
-              aria-label="Xem dạng danh sách rút gọn"
-            >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ==================== 3. DANH SÁCH THÀNH VIÊN (GRID LAYOUT) ==================== -->
-  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
-    <div id="members-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-      <!-- Member Cards Rendered Dynamically Here by app.js -->
-    </div>
-  </main>
-
-
-  <!-- ==================== 4. FOOTER ==================== -->
-  <footer class="bg-white/80 dark:bg-slate-900/80 border-t border-slate-200/80 dark:border-slate-800 mt-16 py-8 transition-colors">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs sm:text-sm text-[#64748B] dark:text-slate-400">
-      <div class="flex items-center gap-2 justify-center">
-        <span class="w-2.5 h-2.5 rounded-full bg-[#4F46E5]"></span>
-        <span class="font-bold text-[#0F172A] dark:text-slate-200">PORTFOLIO NHÓM 1</span>
-        <span>&bull; Khoa CNTT &bull; Trường Đại học Giao thông Vận tải TP.HCM (UTH)</span>
-      </div>
-      <p>
-        Bảo toàn 100% cấu trúc &amp; mã nguồn của từng Portfolio thành viên.
-      </p>
-      <div class="flex items-center gap-4 text-xs">
-        <span class="font-mono">Clean Tech SaaS UI</span>
-        <span>&bull;</span>
-        <span class="font-mono text-[#10B981] font-semibold">100% Responsive &amp; A11y</span>
-      </div>
-    </div>
-  </footer>
-
-
-  <!-- ==================== 5. VIEW ENGINE: FULLSCREEN MODAL / DEVICE SWITCHER ==================== -->
-  <div 
-    id="portfolio-viewer-modal" 
-    class="fixed inset-0 z-50 hidden flex-col bg-slate-950/95 backdrop-blur-md"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Khung xem Portfolio Nhóm 1"
-  >
-    <!-- Sticky Control Header Bar -->
-    <header class="flex-shrink-0 bg-slate-900 border-b border-slate-800 px-3 sm:px-6 py-3 flex items-center justify-between gap-3 text-white z-20">
-      
-      <!-- Left: Nút "Quay lại danh sách Nhóm 1" & Info thành viên -->
-      <div class="flex items-center gap-3 sm:gap-4 min-w-0">
-        <button 
-          onclick="closeViewer()"
-          type="button"
-          class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] hover:opacity-90 text-white font-bold text-xs sm:text-sm shadow-md shadow-indigo-600/30 transition-all flex-shrink-0 group cursor-pointer"
-          title="Quay lại danh sách Nhóm 1 (Esc)"
-        >
-          <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-          </svg>
-          <span class="hidden sm:inline">&larr; Quay lại danh sách</span>
-          <span class="sm:hidden">&larr; Nhóm 1</span>
-        </button>
-
-        <!-- Current Member Pill -->
-        <div class="flex items-center gap-2.5 min-w-0 border-l border-slate-800 pl-3">
-          <img 
-            id="viewer-member-avatar" 
-            src="" 
-            alt="Avatar" 
-            class="w-8 h-8 rounded-full object-cover border border-slate-700 flex-shrink-0"
-          />
-          <div class="min-w-0">
-            <h4 id="viewer-member-name" class="text-xs sm:text-sm font-bold text-white truncate leading-tight">
-              Tên thành viên
-            </h4>
-            <p id="viewer-member-role" class="text-[11px] text-slate-400 truncate hidden sm:block">
-              Chức danh
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Center: Device Frame Switcher (Desktop, Tablet, Mobile) -->
-      <div class="hidden md:flex items-center bg-slate-800 p-1 rounded-xl border border-slate-700 text-xs">
-        <button 
-          type="button" 
-          onclick="setDeviceMode('desktop')"
-          data-device-btn="desktop"
-          class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#4F46E5] text-white transition-all font-semibold cursor-pointer"
-          title="Xem chế độ Desktop (Phím 1)"
-        >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-          </svg>
-          <span>Desktop</span>
-        </button>
-
-        <button 
-          type="button" 
-          onclick="setDeviceMode('tablet')"
-          data-device-btn="tablet"
-          class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-slate-400 hover:bg-slate-700 transition-all font-semibold cursor-pointer"
-          title="Xem chế độ Tablet 768px (Phím 2)"
-        >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-          </svg>
-          <span>Tablet</span>
-        </button>
-
-        <button 
-          type="button" 
-          onclick="setDeviceMode('mobile')"
-          data-device-btn="mobile"
-          class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-slate-400 hover:bg-slate-700 transition-all font-semibold cursor-pointer"
-          title="Xem chế độ Mobile 390px (Phím 3)"
-        >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-          </svg>
-          <span>Mobile</span>
-        </button>
-      </div>
-
-      <!-- Right: Prev / Next Member & Open in New Tab & Close -->
-      <div class="flex items-center gap-2 flex-shrink-0">
-        <!-- Prev Member -->
-        <button 
-          type="button"
-          onclick="navigateViewer(-1)"
-          class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
-          title="Thành viên trước (&larr;)"
-          aria-label="Thành viên trước"
-        >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-          </svg>
-        </button>
-
-        <!-- Next Member -->
-        <button 
-          type="button"
-          onclick="navigateViewer(1)"
-          class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
-          title="Thành viên tiếp theo (&rarr;)"
-          aria-label="Thành viên tiếp theo"
-        >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-          </svg>
-        </button>
-
-        <!-- Open Raw Tab Button -->
-        <a 
-          id="viewer-open-tab-btn"
-          href="#" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
-          title="Mở toàn màn hình trong tab mới"
-          aria-label="Mở toàn màn hình trong tab mới"
-        >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-          </svg>
-        </a>
-
-        <!-- Close Button -->
-        <button 
-          type="button"
-          onclick="closeViewer()"
-          class="p-2 rounded-xl bg-slate-800 hover:bg-red-900/80 hover:text-red-300 text-slate-300 transition-colors cursor-pointer"
-          title="Đóng (Esc)"
-          aria-label="Đóng xem trước"
-        >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
+      <div class="header-badges">
+        <span class="badge-uth">
+          <span class="status-dot"></span>
+          Localhost Sẵn Sàng (6/6 Portfolios)
+        </span>
       </div>
     </header>
 
-    <!-- Main Viewport Area -->
-    <div class="flex-1 relative overflow-hidden bg-slate-950 flex items-center justify-center p-0 md:p-3">
-      <!-- Loading Spinner -->
-      <div id="viewer-loading" class="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-950/80 backdrop-blur-sm gap-3">
-        <div class="spinner"></div>
-        <p class="text-xs sm:text-sm font-semibold text-slate-300">Đang tải Portfolio thành viên Nhóm 1...</p>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-tag">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        Đồ Án Web • Portfolio Nhóm Sinh Viên
+      </div>
+      <h2 class="hero-title">
+        Cổng Tổng Hợp <span class="gradient-text">Portfolio Nhóm</span>
+      </h2>
+      <p class="hero-desc">
+        Chào mừng đến với không gian giới thiệu hồ sơ năng lực của các thành viên. Nơi hội tụ các định hướng công nghệ: Frontend, Backend, Lập trình Di động Android, AI & Thị giác Máy tính và Logistics Thông minh.
+      </p>
+
+      <!-- Stats -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <strong>06</strong>
+          <span>Thành viên</span>
+        </div>
+        <div class="stat-item">
+          <strong>100%</strong>
+          <span>Tương thích Localhost</span>
+        </div>
+        <div class="stat-item">
+          <strong>06</strong>
+          <span>Lĩnh vực chuyên môn</span>
+        </div>
+        <div class="stat-item">
+          <strong>UTH</strong>
+          <span>TP. Hồ Chí Minh</span>
+        </div>
       </div>
 
-      <!-- Device Container -->
-      <div id="viewer-device-container" class="device-container device-desktop">
-        <iframe 
-          id="viewer-frame" 
-          src="about:blank" 
-          class="viewer-iframe"
-          title="Nội dung Portfolio thành viên Nhóm 1"
-        ></iframe>
+      <!-- Filters -->
+      <div class="filter-wrapper">
+        <button class="filter-btn active" onclick="filterMembers('all')">Tất cả thành viên (6)</button>
+        <button class="filter-btn" onclick="filterMembers('frontend')">Frontend & UI/UX</button>
+        <button class="filter-btn" onclick="filterMembers('backend')">Backend & Android</button>
+        <button class="filter-btn" onclick="filterMembers('ai')">AI & 3D Interactive</button>
+        <button class="filter-btn" onclick="filterMembers('logistics')">Data & Logistics</button>
       </div>
-    </div>
+    </section>
 
-    <!-- Viewer Bottom Hint Bar -->
-    <div class="hidden sm:flex items-center justify-between px-6 py-2 bg-slate-900 border-t border-slate-800 text-[11px] text-slate-400">
-      <div class="flex items-center gap-3">
-        <span>Phím tắt:</span>
-        <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 font-mono text-slate-300">Esc</kbd> Đóng
-        <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 font-mono text-slate-300">&larr;</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 font-mono text-slate-300">&rarr;</kbd> Chuyển thành viên
-        <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 font-mono text-slate-300">1</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 font-mono text-slate-300">2</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 font-mono text-slate-300">3</kbd> Đổi khung hình
-      </div>
-      <div class="flex items-center gap-1.5 text-emerald-400">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        <span>Container độc lập &bull; Bảo toàn 100% giao diện gốc</span>
-      </div>
-    </div>
+    <!-- Cards Grid -->
+    <section class="members-grid" id="membersGrid">
 
+      <!-- Thành viên 1: Nguyễn Duy Tân -->
+      <article class="member-card" data-category="frontend" style="--card-accent: #3b82f6;">
+        <div class="card-top">
+          <div class="avatar-wrapper">
+            <img class="avatar-img" src="portfolio_tan/images/duy%20t%C3%A2n.png" alt="Nguyễn Duy Tân" onerror="this.src='https://ui-avatars.com/api/?name=Nguyen+Duy+Tan&background=2563eb&color=fff'">
+          </div>
+          <div class="member-header">
+            <h3 class="member-name">Nguyễn Duy Tân</h3>
+            <p class="member-role">Software Engineering & Frontend Developer</p>
+            <span class="member-school">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              UTH • Khoa CNTT
+            </span>
+          </div>
+        </div>
+        <p class="member-bio">
+          Đam mê xây dựng trải nghiệm web trực quan, hiệu năng cao và giải pháp trực quan hóa dữ liệu (Data Visualization). Chú trọng thiết kế giao diện tinh tế, chuẩn UI/UX.
+        </p>
+        <div class="tags-container">
+          <span class="tech-tag">HTML5/CSS3</span>
+          <span class="tech-tag">JavaScript ES6+</span>
+          <span class="tech-tag">Frontend UI</span>
+          <span class="tech-tag">Data Visualization</span>
+          <span class="tech-tag">Responsive Design</span>
+        </div>
+        <div class="card-actions">
+          <a href="./portfolio_tan/index.html" class="btn-primary" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Mở Portfolio
+          </a>
+          <button class="btn-secondary" onclick="openPreview('./portfolio_tan/index.html', 'Nguyễn Duy Tân | Frontend Developer')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            Xem nhanh
+          </button>
+        </div>
+      </article>
+
+      <!-- Thành viên 2: Đinh Thanh Thiên -->
+      <article class="member-card" data-category="ai" style="--card-accent: #06b6d4;">
+        <div class="card-top">
+          <div class="avatar-wrapper">
+            <img class="avatar-img" src="pro5thanhthien/pro5/thiendinh.png" alt="Đinh Thanh Thiên" onerror="this.src='https://ui-avatars.com/api/?name=Dinh+Thanh+Thien&background=06b6d4&color=fff'">
+          </div>
+          <div class="member-header">
+            <h3 class="member-name">Đinh Thanh Thiên</h3>
+            <p class="member-role">THIEN.DEV — AI & 3D Web Creative</p>
+            <span class="member-school">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              UTH • Smart Logistics AI
+            </span>
+          </div>
+        </div>
+        <p class="member-bio">
+          Kỹ sư AI ứng dụng, Computer Vision kết hợp nền tảng Web 3D tương tác cao cấp (Spline, Three.js) cùng hệ thống chuyển động GSAP mượt mà và giải pháp Smart Logistics.
+        </p>
+        <div class="tags-container">
+          <span class="tech-tag">React + Vite</span>
+          <span class="tech-tag">Three.js / Spline 3D</span>
+          <span class="tech-tag">Computer Vision AI</span>
+          <span class="tech-tag">GSAP Motion</span>
+          <span class="tech-tag">TailwindCSS</span>
+        </div>
+        <div class="card-actions">
+          <a href="./pro5thanhthien/pro5/dist/index.html" class="btn-primary" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Mở Portfolio
+          </a>
+          <button class="btn-secondary" onclick="openPreview('./pro5thanhthien/pro5/dist/index.html', 'Đinh Thanh Thiên | 3D Interactive & AI')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            Xem nhanh
+          </button>
+        </div>
+      </article>
+
+      <!-- Thành viên 3: Phạm Gia Khiêm -->
+      <article class="member-card" data-category="backend" style="--card-accent: #8b5cf6;">
+        <div class="card-top">
+          <div class="avatar-wrapper">
+            <img class="avatar-img" src="portfolio_khiem/images/avatar.jpg" alt="Phạm Gia Khiêm" onerror="this.src='https://ui-avatars.com/api/?name=Pham+Gia+Khiem&background=8b5cf6&color=fff'">
+          </div>
+          <div class="member-header">
+            <h3 class="member-name">Phạm Gia Khiêm (Ryuu)</h3>
+            <p class="member-role">Android & Backend Developer</p>
+            <span class="member-school">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              UTH • Năm 3 Khoa CNTT
+            </span>
+          </div>
+        </div>
+        <p class="member-bio">
+          Định hướng chuyên sâu phát triển ứng dụng di động Android (Kotlin/Java) và hệ thống Backend bền bỉ, an toàn, xử lý API linh hoạt cùng đa cơ sở dữ liệu SQL & NoSQL.
+        </p>
+        <div class="tags-container">
+          <span class="tech-tag">Android (Kotlin/Java)</span>
+          <span class="tech-tag">Node.js / Express</span>
+          <span class="tech-tag">Spring Boot</span>
+          <span class="tech-tag">MySQL & MongoDB</span>
+          <span class="tech-tag">RESTful API</span>
+        </div>
+        <div class="card-actions">
+          <a href="./portfolio_khiem/index.html" class="btn-primary" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Mở Portfolio
+          </a>
+          <button class="btn-secondary" onclick="openPreview('./portfolio_khiem/index.html', 'Phạm Gia Khiêm | Android & Backend')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            Xem nhanh
+          </button>
+        </div>
+      </article>
+
+      <!-- Thành viên 4: Bùi Gia Hưng -->
+      <article class="member-card" data-category="logistics" style="--card-accent: #f59e0b;">
+        <div class="card-top">
+          <div class="avatar-wrapper">
+            <img class="avatar-img" src="portfolio-bui-gia-hung/portfolio-bui-gia-hung/tai-nguyen/hinh-anh/chan-dung.png" alt="Bùi Gia Hưng" onerror="this.src='https://ui-avatars.com/api/?name=Bui+Gia+Hung&background=f59e0b&color=fff'">
+          </div>
+          <div class="member-header">
+            <h3 class="member-name">Bùi Gia Hưng</h3>
+            <p class="member-role">Software, Data & Smart Logistics</p>
+            <span class="member-school">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              UTH • Logistics & Hệ Thống
+            </span>
+          </div>
+        </div>
+        <p class="member-bio">
+          Nghiên cứu và phát triển phần mềm ứng dụng, phân tích dữ liệu và các giải pháp chuỗi cung ứng thông minh (Smart Logistics, Cold Chain Logistics).
+        </p>
+        <div class="tags-container">
+          <span class="tech-tag">Software Dev</span>
+          <span class="tech-tag">Data Analysis</span>
+          <span class="tech-tag">Smart Logistics</span>
+          <span class="tech-tag">Python & SQL</span>
+          <span class="tech-tag">System Design</span>
+        </div>
+        <div class="card-actions">
+          <a href="./portfolio-bui-gia-hung/portfolio-bui-gia-hung/index.html" class="btn-primary" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Mở Portfolio
+          </a>
+          <button class="btn-secondary" onclick="openPreview('./portfolio-bui-gia-hung/portfolio-bui-gia-hung/index.html', 'Bùi Gia Hưng | Software & Smart Logistics')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            Xem nhanh
+          </button>
+        </div>
+      </article>
+
+      <!-- Thành viên 5: Nguyễn Đăng Khôi -->
+      <article class="member-card" data-category="frontend" style="--card-accent: #10b981;">
+        <div class="card-top">
+          <div class="avatar-wrapper">
+            <img class="avatar-img" src="myportfolio-master/assets/images/avatar.jpg" alt="Nguyễn Đăng Khôi" onerror="this.src='https://ui-avatars.com/api/?name=Nguyen+Dang+Khoi&background=10b981&color=fff'">
+          </div>
+          <div class="member-header">
+            <h3 class="member-name">Nguyễn Đăng Khôi</h3>
+            <p class="member-role">Computer Science & Web Development</p>
+            <span class="member-school">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              UTH • Khoa CNTT
+            </span>
+          </div>
+        </div>
+        <p class="member-bio">
+          Sinh viên Khoa học Máy tính với định hướng nghiên cứu thuật toán, lập trình web hiện đại, xây dựng kiến trúc code sạch và tư duy tối ưu giải thuật.
+        </p>
+        <div class="tags-container">
+          <span class="tech-tag">Computer Science</span>
+          <span class="tech-tag">Algorithms</span>
+          <span class="tech-tag">Web Standards</span>
+          <span class="tech-tag">JavaScript / HTML / CSS</span>
+          <span class="tech-tag">Git & Systems</span>
+        </div>
+        <div class="card-actions">
+          <a href="./myportfolio-master/index.html" class="btn-primary" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Mở Portfolio
+          </a>
+          <button class="btn-secondary" onclick="openPreview('./myportfolio-master/index.html', 'Nguyễn Đăng Khôi | Computer Science')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            Xem nhanh
+          </button>
+        </div>
+      </article>
+
+      <!-- Thành viên 6: Đoàn Đăng Khoa -->
+      <article class="member-card" data-category="frontend" style="--card-accent: #ec4899;">
+        <div class="card-top">
+          <div class="avatar-wrapper">
+            <img class="avatar-img" src="portfolio-khoa/images/photo.jpg" alt="Đoàn Đăng Khoa" onerror="this.src='https://ui-avatars.com/api/?name=Doan+Dang+Khoa&background=ec4899&color=fff'">
+          </div>
+          <div class="member-header">
+            <h3 class="member-name">Đoàn Đăng Khoa</h3>
+            <p class="member-role">Web Developer & Software Engineering</p>
+            <span class="member-school">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              UTH • Khoa CNTT
+            </span>
+          </div>
+        </div>
+        <p class="member-bio">
+          Sinh viên Công nghệ Thông tin tại UTH với niềm say mê xây dựng các sản phẩm web hiện đại, giao diện động tối ưu, tư duy lập trình hệ thống với Python, Java và nền tảng dữ liệu.
+        </p>
+        <div class="tags-container">
+          <span class="tech-tag">HTML5 / CSS3</span>
+          <span class="tech-tag">JavaScript ES6+</span>
+          <span class="tech-tag">Python & SQL</span>
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">Git / GitHub</span>
+        </div>
+        <div class="card-actions">
+          <a href="./portfolio-khoa/index.html" class="btn-primary" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Mở Portfolio
+          </a>
+          <button class="btn-secondary" onclick="openPreview('./portfolio-khoa/index.html', 'Đoàn Đăng Khoa | Web Developer')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            Xem nhanh
+          </button>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Giải Thích Cơ Chế Localhost & Port -->
+    <section class="guide-section">
+      <div class="guide-header">
+        <h2>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          Giải Đáp: Chạy Localhost Chung Hay Riêng Port?
+        </h2>
+        <p>Phân tích chi tiết về cơ chế vận hành nhiều thư mục website trên máy tính cá nhân (Localhost).</p>
+      </div>
+
+      <div class="guide-grid">
+        <div class="guide-box highlight">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+            Cách 1: Chạy Chung 1 Port (Khuyên Dùng)
+          </h3>
+          <p>
+            Trang tổng hợp này đã thiết kế để <strong>TẤT CẢ 6 PORTFOLIO CHẠY CHUNG TRÊN 1 PORT DUY NHẤT</strong> (Ví dụ <span class="code-pill">http://localhost:5500</span>).
+          </p>
+          <p>
+            Chỉ cần mở thư mục gốc <span class="code-pill">port nhóm</span> bằng <strong>Live Server trong VS Code</strong> hoặc chạy file <span class="code-pill">start-server.bat</span>. Tất cả các liên kết thành viên đều là đường dẫn tương đối và hoạt động ngay tức thì!
+          </p>
+        </div>
+
+        <div class="guide-box">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Cách 2: Chạy Đa Port (Multi-port Localhost)
+          </h3>
+          <p>
+            Nếu mỗi bạn tự chạy server riêng trên máy mình:
+          </p>
+          <p>
+            • <strong>Có chạy chung được không?</strong> Có, hoàn toàn được! Máy tính cho phép chạy hàng chục server cùng lúc trên <span class="code-pill">127.0.0.1</span>, <strong>miễn là số Port phải khác nhau</strong> (VD: Tân 5500, Thiên 3000, Khiêm 5501...).
+          </p>
+          <p>
+            • <em>Lưu ý:</em> Không được để 2 ứng dụng chạy cùng 1 số port cùng lúc (sẽ bị lỗi <span class="code-pill">Port in use / EADDRINUSE</span>).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p><strong>Đồ án Môn Lập Trình Web</strong> — Trường Đại học Giao thông Vận tải TP.HCM (UTH)</p>
+      <p style="color: #64748b; font-size: 0.8rem;">Được tối ưu cho cả môi trường Localhost và lưu trữ Web Server tĩnh • 2026</p>
+    </footer>
   </div>
 
+  <!-- Preview Modal -->
+  <div class="modal-overlay" id="previewModal">
+    <div class="modal-window">
+      <div class="modal-topbar">
+        <div class="modal-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span id="modalTitleText">Xem trước Portfolio</span>
+        </div>
+        <div class="modal-controls">
+          <a id="modalOpenExternal" href="#" target="_blank" class="btn-icon" title="Mở trang trong tab mới">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <button class="btn-icon" onclick="reloadIframe()" title="Tải lại">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+          </button>
+          <button class="btn-icon" onclick="closePreview()" title="Đóng">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <iframe id="previewFrame" class="modal-iframe" src="about:blank"></iframe>
+    </div>
+  </div>
 
-  <!-- Core Application Script -->
-  <script src="hub_assets/app.js"></script>
+  <script>
+    // Filter Functionality
+    function filterMembers(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const cards = document.querySelectorAll('.member-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal Live Preview
+    const modal = document.getElementById('previewModal');
+    const iframe = document.getElementById('previewFrame');
+    const titleText = document.getElementById('modalTitleText');
+    const externalLink = document.getElementById('modalOpenExternal');
+
+    function openPreview(url, title) {
+      titleText.textContent = title;
+      iframe.src = url;
+      externalLink.href = url;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePreview() {
+      modal.classList.remove('active');
+      iframe.src = 'about:blank';
+      document.body.style.overflow = '';
+    }
+
+    function reloadIframe() {
+      if (iframe.src) {
+        iframe.src = iframe.src;
+      }
+    }
+
+    // Close modal on Escape
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closePreview();
+      }
+    });
+
+    // Close when clicking overlay backdrop
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closePreview();
+      }
+    });
+  </script>
 </body>
 </html>

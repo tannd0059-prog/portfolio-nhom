@@ -1,0 +1,117 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ocrBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#191310" />
+      <stop offset="50%" stop-color="#261b15" />
+      <stop offset="100%" stop-color="#0e0a08" />
+    </linearGradient>
+    <linearGradient id="neonOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f26b21" />
+      <stop offset="100%" stop-color="#fb923c" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" fill="url(#ocrBg)" />
+
+  <!-- Top Bar -->
+  <rect x="0" y="0" width="800" height="42" rx="16" fill="#140e0a" />
+  <circle cx="28" cy="21" r="6" fill="#ef4444" />
+  <circle cx="48" cy="21" r="6" fill="#f59e0b" />
+  <circle cx="68" cy="21" r="6" fill="#10b981" />
+  <text x="400" y="26" fill="#cbb19c" font-size="12" font-family="'JetBrains Mono', monospace" text-anchor="middle">vision-ocr-detector.py [OpenCV + Tesseract OCR Pipeline]</text>
+
+  <!-- Left Side: Camera Video Stream Feed Mockup -->
+  <rect x="25" y="60" width="450" height="415" rx="12" fill="#1f1612" stroke="#412d20" stroke-width="1.5" />
+  
+  <!-- Camera Feed simulation -->
+  <rect x="35" y="70" width="430" height="280" rx="8" fill="#150e0a" />
+  
+  <!-- Video Grid lines -->
+  <line x1="35" y1="210" x2="465" y2="210" stroke="#f26b21" stroke-opacity="0.15" stroke-dasharray="4" />
+  <line x1="250" y1="70" x2="250" y2="350" stroke="#f26b21" stroke-opacity="0.15" stroke-dasharray="4" />
+
+  <!-- Car outline graphic in camera feed -->
+  <path d="M120 280 L160 210 L340 210 L380 280 L395 300 L105 300 Z" fill="#302018" stroke="#5c412f" stroke-width="2" />
+  <circle cx="160" cy="300" r="18" fill="#120c09" stroke="#7a5a43" stroke-width="3" />
+  <circle cx="340" cy="300" r="18" fill="#120c09" stroke="#7a5a43" stroke-width="3" />
+  
+  <!-- Green AI Bounding Box on Car License Plate -->
+  <rect x="200" y="255" width="100" height="38" rx="4" fill="none" stroke="#10b981" stroke-width="2.5" filter="url(#glow)" />
+  <rect x="200" y="240" width="65" height="15" rx="3" fill="#10b981" />
+  <text x="204" y="251" fill="#000" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="bold">PLATE 98.4%</text>
+
+  <!-- Plate Preview Zoomed -->
+  <rect x="205" y="260" width="90" height="28" rx="3" fill="#fff" />
+  <text x="250" y="278" fill="#000" font-size="14" font-weight="900" font-family="'JetBrains Mono', monospace" text-anchor="middle">51K-892.45</text>
+
+  <!-- Camera Live status indicator -->
+  <circle cx="55" cy="90" r="5" fill="#ef4444" filter="url(#glow)" />
+  <text x="68" y="94" fill="#ef4444" font-size="11" font-weight="bold" font-family="'JetBrains Mono', monospace">CAM-01 • LIVE 60 FPS</text>
+  <text x="350" y="94" fill="#a37e64" font-size="10" font-family="'JetBrains Mono', monospace">1920x1080px</text>
+
+  <!-- Terminal log output below camera -->
+  <rect x="35" y="360" width="430" height="105" rx="8" fill="#120c09" />
+  <text x="48" y="380" fill="#10b981" font-size="10" font-family="'JetBrains Mono', monospace">[INFO] Frame #2841: Contour detected at x:200 y:255</text>
+  <text x="48" y="398" fill="#fbb984" font-size="10" font-family="'JetBrains Mono', monospace">[OCR] Tesseract recognized text: '51K-892.45'</text>
+  <text x="48" y="416" fill="#38bdf8" font-size="10" font-family="'JetBrains Mono', monospace">[API] POST /api/parking/entry -> HTTP 200 OK (18ms)</text>
+  <text x="48" y="434" fill="#a37e64" font-size="10" font-family="'JetBrains Mono', monospace">[STATUS] Barrier gate opened successfully.</text>
+  <text x="48" y="452" fill="#f26b21" font-size="10" font-family="'JetBrains Mono', monospace">>_ system listening for next vehicle...</text>
+
+  <!-- Right Side: Real-time Analytics & Detection Stats -->
+  <rect x="490" y="60" width="285" height="130" rx="12" fill="#201510" stroke="#412d20" stroke-width="1.5" />
+  <text x="510" y="85" fill="#f26b21" font-size="13" font-weight="bold" font-family="'Plus Jakarta Sans', sans-serif">⚡ Thông số Nhận diện AI</text>
+  
+  <text x="510" y="112" fill="#a37e64" font-size="10" font-family="'Plus Jakarta Sans', sans-serif">Độ chính xác trung bình (mAP)</text>
+  <text x="510" y="138" fill="#fff" font-size="24" font-weight="bold" font-family="'JetBrains Mono', monospace">98.4%</text>
+
+  <text x="660" y="112" fill="#a37e64" font-size="10" font-family="'Plus Jakarta Sans', sans-serif">Độ trễ xử lý</text>
+  <text x="660" y="138" fill="#10b981" font-size="24" font-weight="bold" font-family="'JetBrains Mono', monospace">18 ms</text>
+
+  <rect x="510" y="155" width="245" height="8" rx="4" fill="#302018" />
+  <rect x="510" y="155" width="230" height="8" rx="4" fill="url(#neonOrange)" />
+
+  <!-- Right Side: Flow Distribution -->
+  <rect x="490" y="202" width="285" height="273" rx="12" fill="#201510" stroke="#412d20" stroke-width="1.5" />
+  <text x="510" y="228" fill="#fff" font-size="12" font-weight="bold" font-family="'Plus Jakarta Sans', sans-serif">Phân bổ phương tiện theo giờ</text>
+  
+  <!-- Mini Bar Chart -->
+  <line x1="510" y1="330" x2="755" y2="330" stroke="#412d20" stroke-width="1" />
+  <!-- Bar 1 -->
+  <rect x="520" y="280" width="16" height="50" rx="3" fill="#f26b21" fill-opacity="0.6" />
+  <text x="528" y="345" fill="#a37e64" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">07h</text>
+  <!-- Bar 2 Peak -->
+  <rect x="548" y="245" width="16" height="85" rx="3" fill="#f26b21" />
+  <text x="556" y="345" fill="#fbb984" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">08h</text>
+  <!-- Bar 3 -->
+  <rect x="576" y="270" width="16" height="60" rx="3" fill="#f26b21" fill-opacity="0.7" />
+  <text x="584" y="345" fill="#a37e64" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">09h</text>
+  <!-- Bar 4 -->
+  <rect x="604" y="295" width="16" height="35" rx="3" fill="#f26b21" fill-opacity="0.5" />
+  <text x="612" y="345" fill="#a37e64" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">10h</text>
+  <!-- Bar 5 -->
+  <rect x="632" y="305" width="16" height="25" rx="3" fill="#f26b21" fill-opacity="0.4" />
+  <text x="640" y="345" fill="#a37e64" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">11h</text>
+  <!-- Bar 6 Peak 2 -->
+  <rect x="660" y="250" width="16" height="80" rx="3" fill="#f26b21" />
+  <text x="668" y="345" fill="#fbb984" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">12h</text>
+  <!-- Bar 7 -->
+  <rect x="688" y="275" width="16" height="55" rx="3" fill="#f26b21" fill-opacity="0.6" />
+  <text x="696" y="345" fill="#a37e64" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">13h</text>
+  <!-- Bar 8 -->
+  <rect x="716" y="260" width="16" height="70" rx="3" fill="#f26b21" fill-opacity="0.8" />
+  <text x="724" y="345" fill="#a37e64" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">17h</text>
+
+  <!-- Tags -->
+  <rect x="510" y="375" width="245" height="80" rx="8" fill="#160e0a" />
+  <text x="525" y="400" fill="#fbb984" font-size="11" font-weight="bold" font-family="'Plus Jakarta Sans', sans-serif">Công nghệ cốt lõi:</text>
+  <text x="525" y="420" fill="#a37e64" font-size="10" font-family="'JetBrains Mono', monospace">• Python • OpenCV • YOLOv8</text>
+  <text x="525" y="440" fill="#a37e64" font-size="10" font-family="'JetBrains Mono', monospace">• Flask REST API • SQLite • Chart.js</text>
+</svg>

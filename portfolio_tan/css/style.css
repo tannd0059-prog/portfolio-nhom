@@ -1,0 +1,182 @@
+/* ==========================================================================
+   PORTFOLIO NGUYỄN DUY TÂN - STYLESHEET
+   Chủ đề: Terracotta Autumn & Espresso Warm Cream
+   Khoa CNTT - Trường Đại học Giao thông Vận tải TP.HCM (UTH)
+   ========================================================================== */
+
+/* 1. RESET & BASE CONFIGURATION */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem; /* Bù chiều cao cố định của Header khi cuộn menu */
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. SCROLL PROGRESS BAR (THANH TIẾN ĐỘ CUỘN TRANG TRÊN ĐỈNH) */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3.5px;
+    width: 0%;
+    background: linear-gradient(90deg, #b8860b 0%, #dfb15b 50%, #f5d68f 100%);
+    z-index: 100;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 0 10px rgba(184, 134, 11, 0.5);
+}
+
+/* 3. TÙY CHỈNH THANH CUỘN (CUSTOM SCROLLBAR) */
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f4f0e6;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #0b0d12;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cfc1aa;
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b8860b;
+}
+
+/* 4. HIỆU ỨNG THẺ KÍNH MỜ (GLASSMORPHISM CARDS) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.dark .glass-card {
+    background: rgba(18, 21, 29, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+/* 5. CON TRỎ TYPEWRITER BLINK */
+.cursor-blink {
+    border-right: 2.5px solid #b8860b;
+    animation: blinkCursor 0.8s infinite;
+    padding-right: 2px;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { border-color: #b8860b; }
+    50% { border-color: transparent; }
+}
+
+/* 6. HIỆU ỨNG CARD LIFT & SHADOW TRANSITIONS */
+.card-hover-effect {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -10px rgba(184, 134, 11, 0.18);
+}
+
+.dark .card-hover-effect:hover {
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(223, 177, 91, 0.08);
+}
+
+/* 7. PHÙ HIỆU XUNG NHỊP (PULSE STATUS BADGE) */
+.pulse-indicator {
+    position: relative;
+}
+
+.pulse-indicator::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 9999px;
+    background-color: #10b981;
+    opacity: 0.75;
+    animation: statusPulse 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes statusPulse {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    70% { transform: scale(1.8); opacity: 0; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* 8. ACTIVE NAVIGATION LINK (SCROLL SPY) */
+.nav-link.active {
+    color: #b8860b !important;
+    font-weight: 700 !important;
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2.5px;
+    background: #b8860b;
+    border-radius: 9999px;
+}
+
+/* 9. MODAL ANIMATION */
+#project-modal.active,
+#cv-modal.active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+#project-modal.active .modal-body,
+#cv-modal.active .modal-body {
+    transform: scale(1) translateY(0);
+}
+
+.modal-body {
+    transform: scale(0.95) translateY(15px);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 10. GREETING BADGE ANIMATION */
+@keyframes softFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.animate-soft-float {
+    animation: softFloat 4s ease-in-out infinite;
+}
+
+/* 11. IN ẤN HỒ SƠ CHUẨN IN (PRINT STYLES) */
+@media print {
+    header, footer, #back-to-top, #scroll-progress, #theme-toggle, #toast-container, .proj-tab {
+        display: none !important;
+    }
+    body {
+        background: #fff !important;
+        color: #000 !important;
+    }
+    .glass-card {
+        background: transparent !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+    }
+}

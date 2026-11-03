@@ -1,1 +1,0 @@
-vô content kiếm cái hub r past link hub vô(index) ở trên main page có cái nút về hub, bấm vô là quay ngược về cái index

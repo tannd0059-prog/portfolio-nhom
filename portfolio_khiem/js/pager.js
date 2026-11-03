@@ -3,7 +3,6 @@
 (() => {
   const root = document.documentElement;
   const pages = [...document.querySelectorAll('.page')];
-  const veil = document.querySelector('.veil');
   const mq = matchMedia('(min-width: 901px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
 
   let idx = 0, locked = false, coolUntil = 0, lastWheel = 0, consumed = false, nativeScroll = false;
@@ -50,7 +49,6 @@
     idx = i; locked = true;
     show(i); announce(i);
     document.dispatchEvent(new CustomEvent('pagechange', { detail: { dir } }));
-    veil.classList.remove('go'); void veil.offsetWidth; veil.classList.add('go');
     const max = root.scrollHeight - window.innerHeight;
     animateTo(Math.min(topOf(pages[i]), max), 1000).then(() => { locked = false; coolUntil = performance.now() + 300; }); // nghỉ một nhịp sau khi tới trang
   }

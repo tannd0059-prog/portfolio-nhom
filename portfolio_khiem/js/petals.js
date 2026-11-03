@@ -45,7 +45,8 @@
     w = window.innerWidth; h = window.innerHeight;
     canvas.width = w * dpr; canvas.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const target = Math.min(34, Math.round(w / 40));
+    const lite = document.documentElement.classList.contains('lite');
+    const target = lite ? 10 : Math.min(30, Math.round(w / 44));
     while (petals.length < target) petals.push(makePetal(true));
     petals.length = target;
   }
@@ -99,6 +100,7 @@
   document.addEventListener('pagechange', (e) => push(e.detail.dir * 6));
   window.addEventListener('resize', resize);
   document.addEventListener('themechange', buildSprite);
+  document.addEventListener('litechange', resize);
 
   buildSprite();
   resize();

@@ -1,0 +1,70 @@
+/* =====================================================================
+   effects.css — hiệu ứng chuyển động, hiện dần khi cuộn, hover, keyframes
+   Tất cả hiệu ứng được tắt/giảm khi người dùng bật "giảm chuyển động".
+   ===================================================================== */
+
+/* ---------- Aurora (đốm sáng mờ chuyển động ở banner) ---------- */
+.aurora { position: absolute; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
+.aurora span { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .45; animation: drift 18s ease-in-out infinite alternate; }
+.aurora span:nth-child(1) { width: 440px; height: 440px; left: -120px; top: 5%; background: var(--accent); }
+.aurora span:nth-child(2) { width: 380px; height: 380px; right: -100px; top: 30%; background: var(--accent-2); animation-delay: -6s; }
+.aurora span:nth-child(3) { width: 320px; height: 320px; left: 40%; bottom: -140px; background: #60a5fa; animation-delay: -11s; }
+:root[data-theme="dark"] .aurora span { opacity: .28; }
+
+/* ---------- Dải công nghệ chạy ngang ---------- */
+.marquee { overflow: hidden; padding: 16px 0; border-block: 1px solid var(--border); background: var(--card); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee-track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-item { display: inline-flex; align-items: center; gap: 14px; padding: 0 22px; font-family: var(--mono); font-size: .95rem; font-weight: 500; color: var(--muted); white-space: nowrap; }
+.marquee-item i { font-size: .4rem; color: var(--accent-2); }
+
+/* ---------- Hiện dần khi cuộn (chỉ ẩn khi JS đã chạy) ---------- */
+.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1); }
+.js .reveal.visible { opacity: 1; transform: none; }
+
+/* Các phần tử con xuất hiện lần lượt (dùng animation + fill "backwards" để không cản hiệu ứng hover) */
+.js .reveal:not(.visible) :is(.stagger, .stagger-pop) > * { opacity: 0; }
+.js .reveal.visible .stagger > * { animation: slideUp .65s cubic-bezier(.2, .7, .2, 1) calc(var(--i, 0) * 90ms) backwards; }
+.js .reveal.visible .stagger-pop > * { animation: popIn .6s calc(var(--i, 0) * 90ms) backwards; }
+
+.pop-in { animation: popIn .45s backwards; }
+
+/* ---------- Thẻ nghiêng 3D + đốm sáng theo chuột ---------- */
+.tilt { transition: transform .25s ease, box-shadow .3s, border-color .3s; will-change: transform; transform-style: preserve-3d; }
+.spot { position: relative; overflow: hidden; }
+.tl-item.spot { overflow: visible; }          /* để chấm tròn của timeline không bị cắt */
+.spot::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0; transition: opacity .3s; border-radius: inherit;
+  background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), var(--accent-soft), transparent 65%);
+}
+.spot:hover::before { opacity: 1; }
+.spot > * { position: relative; z-index: 1; }
+
+/* Vầng sáng đi theo con trỏ */
+.cursor-glow {
+  position: fixed; top: 0; left: 0; z-index: 3; width: 400px; height: 400px; border-radius: 50%; pointer-events: none; opacity: 0; transition: opacity .4s;
+  background: radial-gradient(circle, var(--accent-soft), transparent 65%);
+}
+.cursor-glow.on { opacity: .9; }
+
+/* ---------- Keyframes ---------- */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(60px, -40px) scale(1.15); } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes wheel { 0% { opacity: 0; transform: translateY(0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(16px); } }
+@keyframes shine { 0%, 55% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+@keyframes popIn { from { opacity: 0; transform: translateY(16px) scale(.94); } to { opacity: 1; transform: none; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes carProgress { from { width: 0; } to { width: 100%; } }
+
+/* ---------- Giảm chuyển động ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+  .js .reveal, .js .reveal:not(.visible) :is(.stagger, .stagger-pop) > * { opacity: 1; transform: none; }
+  .js .reveal.visible .stagger > *, .js .reveal.visible .stagger-pop > *, .pop-in { animation: none; }
+  .marquee-track { animation: none; }
+  .cursor-glow { display: none; }
+}

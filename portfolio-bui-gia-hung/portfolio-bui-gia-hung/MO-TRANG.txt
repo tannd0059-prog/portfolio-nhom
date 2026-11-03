@@ -1,0 +1,7 @@
+GIAI NEN TOAN BO THU MUC ROI MO index.html BANG TRINH DUYET.
+
+Hieu ung tu chay ngay khi mo trang. Khong can bam Enable animations.
+Ban nay van chay hieu ung khi may bat Reduce Motion.
+Anh, font va ma nguon deu luu cuc bo; khong can Internet de tai.
+Khong tach index.html ra khoi ma-nguon va tai-nguyen.
+Khong mo trong cua so xem truoc hoac ben trong tep ZIP.
