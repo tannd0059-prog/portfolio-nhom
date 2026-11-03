@@ -1,0 +1,9 @@
+# Jekyll configuration for GitHub Pages
+exclude:
+  - node_modules
+  - pro5thanhthien/pro5/node_modules
+  - pro5thanhthien/pro5/docs
+  - pro5thanhthien/pro5/portfolio_audit
+  - pro5thanhthien/pro5/PORTFOLIO_REBUILD_PLAN.md
+  - "*.bat"
+  - "server.js"

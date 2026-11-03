@@ -1,3 +1,4 @@
+{% raw %}
 # TÀI LIỆU KIẾN TRÚC KỸ THUẬT: TÍCH HỢP SPLINE 3D VÀO WEB PORTFOLIO HIỆN ĐẠI
 **Mã tài liệu:** `ARC-SPLINE-3D-PORTFOLIO-01`  
 **Phiên bản:** 1.0.0  
@@ -779,3 +780,5 @@ Tài liệu này đã hoàn thành việc nghiên cứu và thiết lập nền 
 
 **Bước tiếp theo (Phase 1):**
 Khởi tạo khung dự án mẫu (Project Scaffolding) theo chuẩn **Vite + React + TypeScript + Tailwind CSS**, cấu hình sẵn `SplineController` và hệ thống CSS Pass-through layering theo đúng tài liệu này.
+
+{% endraw %}

@@ -1,3 +1,4 @@
+{% raw %}
 # TÀI LIỆU THAM CHIẾU MÃ NGUỒN CỐT LÕI (SOURCE CODE REFERENCE)
 **Mã tài liệu:** `AUDIT-PORTFOLIO-THIEN-07`  
 **Dự án:** Portfolio Cá Nhân Đinh Thanh Thiên — UTH  
@@ -796,3 +797,5 @@ export const AvatarBentoCard: React.FC<AvatarBentoCardProps> = ({
   );
 };
 ```
+
+{% endraw %}
